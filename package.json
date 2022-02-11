@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "axios": "^0.21.4",
+    "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-airbnb": "^5.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.2.0",
@@ -37,6 +38,7 @@
     "react": "^16.14.0",
     "react-bootstrap": "^2.1.1",
     "react-dom": "^16.14.0",
+    "styled-components": "^5.3.3",
     "underscore": "^1.12.1"
   }
 }
