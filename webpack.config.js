@@ -25,6 +25,7 @@ module.exports = {
               'babel-preset-airbnb',
             ],
             plugins: [
+              'babel-plugin-styled-components',
               ['@babel/plugin-transform-runtime',
                 {
                   regenerator: true,
