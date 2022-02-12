@@ -1,9 +1,10 @@
 import React from 'react';
-import Product from './Product';
+import Product from './Product.jsx';
 
 // function App() {
 //   return <div>Hello World!</div>;
 // }
+// myStorage = window.localStorage;
 
 class App extends React.Component {
   constructor(props) {
@@ -17,10 +18,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1 />
+        <h1></h1>
       </div>
-    );
+    )
   }
 }
-l;
+l
 export default App;
