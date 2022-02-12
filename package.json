@@ -29,11 +29,13 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
     "axios": "^0.21.4",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-airbnb": "^5.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.2.0",
+    "msw": "^0.36.8",
     "mysql2": "^2.3.3",
     "react": "^16.14.0",
     "react-bootstrap": "^2.1.1",
