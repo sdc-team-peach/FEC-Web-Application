@@ -40,13 +40,9 @@
     "react": "^16.14.0",
     "react-bootstrap": "^2.1.1",
     "react-dom": "^16.14.0",
-<<<<<<< HEAD
-    "react-router": "^6.2.1",
-=======
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "styled-components": "^5.3.3",
->>>>>>> ea0af7cf816d33cafdb7c69dbb84904f85a008f2
     "underscore": "^1.12.1"
   }
 }
