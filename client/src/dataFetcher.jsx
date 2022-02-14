@@ -1,31 +1,19 @@
 import axios from 'axios';
 import { useState, useEffect, useReducer } from 'react';
 
-const productDataFetch = (id, endpoint) => {
-  const productId = id || 40344;
-  // const [productId, setProductId] = useState(currentId);
-  const [productInfo, setProductInfo] = useState([]);
+const dataFetcher = {
+  productId: 40344,
 
-  // useMemo can make it faster getting data we already used
-  // const productData = useMemo(() => {
-  //   fetchData(productId);
-  // }, [productInfo]);
+  overviewFetcher() {
 
-  // const getRequestsArray = [(productId, '/products/review'), (productId, '/products/related')...]
+  },
 
-  useEffect(() => {
-    axios.get(endpoint, {
-      params: {
-        id: productId,
-      },
-    })
-      .then((res) => {
-        setProductInfo(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  reviewFetcher(endpoint, pages, sort) {
+  },
 
-  return productInfo;
+  relatedFetcher() {
+
+  },
 };
 
 // const ACTION = {
@@ -78,4 +66,4 @@ const productDataFetch = (id, endpoint) => {
 //   return state;
 // };
 
-export default productDataFetch;
+export default dataFetcher;
