@@ -12,11 +12,9 @@ function App() {
   const data = productDataFetch();
   console.log(data);
   return (
-    <Button>
-      {' '}
-      {data.product}
-      {' '}
-    </Button>
+    <div>
+      {data.productInfo.name}
+    </div>
   );
 }
 

@@ -25,6 +25,7 @@ import { useState, useEffect, useReducer } from 'react';
 
 //   return productInfo;
 // };
+
 const ACTION = {
   PRODUCT_INFO: 'productInfo',
   PRODUCT_STYLE: 'productStyle',
