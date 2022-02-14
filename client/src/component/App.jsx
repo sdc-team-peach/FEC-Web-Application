@@ -1,27 +1,23 @@
-import React from 'react';
-import Product from './Product.jsx';
+import React, { useState, useEffect } from 'react';
+import productDataFetch from '../dataFetcher';
+import Product from './Product';
+import { Button, Container } from '../GlobalStyle';
 
 // function App() {
 //   return <div>Hello World!</div>;
 // }
 // myStorage = window.localStorage;
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cart: [],
-
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <h1></h1>
-      </div>
-    )
-  }
+function App() {
+  const data = productDataFetch();
+  console.log(data);
+  return (
+    <Button>
+      {' '}
+      {data.product}
+      {' '}
+    </Button>
+  );
 }
-l
+
 export default App;
