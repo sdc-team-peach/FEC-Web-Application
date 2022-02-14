@@ -81,19 +81,6 @@ app.get('/products/related', (req, res) => {
         const responseData = responses.map((response) => response.data);
         res.send(responseData);
       }));
-      // resultArr.data.forEach((relatedProductId) => {
-      //   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}/styles`, {
-      //     headers: {
-      //       Authorization: config.API_KEY,
-      //     },
-      //   })
-      //     .catch((err) => {
-      //       console.log('err getting style', err);
-      //     })
-      //     .then((result) => {
-      //       relatedProductStyles.push(result.data);
-      //     });
-      // });
     });
 });
 
