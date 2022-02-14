@@ -80,7 +80,9 @@ app.get('/products/related', (req, res) => {
         // console.log(responses.data);
         const responseData = responses.map((response) => response.data);
         res.send(responseData);
-      }));
+      })).catch((errors) => {
+        res.status(500).send(errors);
+      });
     });
 });
 
