@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import dataFetcher from '../dataFetcher';
-import Product from './Product';
-import { Button, Container } from '../GlobalStyle';
+import React, { useState } from 'react';
 import Reviews from './reviews/Reviews';
 import Related from './related/Related';
 import Overview from './overview/Overview';
