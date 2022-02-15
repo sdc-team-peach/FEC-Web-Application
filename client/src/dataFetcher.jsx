@@ -11,7 +11,7 @@ const dataFetcher = {
   reviewFetcher(endpoint, pages, sort) {
   },
 
-  relatedFetcher() {
+  relatedFetcher(endpoint) {
 
   },
 };

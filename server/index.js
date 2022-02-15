@@ -86,10 +86,34 @@ app.get('/products/related', (req, res) => {
     });
 });
 
-// app.get('/test', (req, res) => {
-//   const productId = req.query.id;
-//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}/styles`);
-// });
+app.get('/cart', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
+    .then((response) => {
+      res.send(response.data);
+    });
+});
+
+app.post('/cart', (req, res) => {
+  const param = req.query;
+  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', param, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
