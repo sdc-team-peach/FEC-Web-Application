@@ -5,14 +5,82 @@ const dataFetcher = {
   productId: 40344,
 
   overviewFetcher() {
-
+    const [productInfo, setProductInfo] = useState([]);
+    const [productStyle, setProductStyle] = useState([]);
+    useEffect(() => {
+      axios.get('/products', {
+        params: {
+          id: this.productId,
+        },
+      })
+        .then((res) => {
+          setProductInfo(res.data);
+        })
+        .then(() => {
+          axios.get('/products/styles', {
+            params: {
+              id: this.productId,
+            },
+          })
+            .then((res) => {
+              setProductStyle(res.data);
+            });
+        });
+    }, []);
+    return { info: productInfo, styles: productStyle };
   },
 
-  reviewFetcher(endpoint, pages, sort) {
+  reviewFetcher(pages, sort) {
+    const [reviews, setReviews] = useState();
+
+    useEffect(() => {
+      axios.get('/products/review', {
+        params: {
+          id: this.productId,
+          pages,
+          sort,
+        },
+      })
+        .then((res) => {
+          setReviews(res.data);
+        });
+    }, []);
+
+    return reviews;
   },
 
-  relatedFetcher(endpoint) {
+  reviewMetaFetcher() {
+    const [metaReview, setMetaReviews] = useState();
 
+    useEffect(() => {
+      axios.get('/products/review/meta', {
+        params: {
+          id: this.productId,
+        },
+      })
+        .then((res) => {
+          setMetaReviews(res.data);
+        });
+    }, []);
+
+    return metaReview;
+  },
+
+  relatedFetcher(id) {
+    const productId = id || 40344;
+    const [relatedProducts, setRelatedProducts] = useState();
+    useEffect(() => {
+      axios.get('/products/related', {
+        params: { id: productId },
+      })
+        .then((res) => {
+          setRelatedProducts(res.data);
+        })
+        .catch((err) => {
+          console.log('err fetching related products', err);
+        });
+    }, []);
+    return relatedProducts;
   },
 };
 
