@@ -10,52 +10,63 @@ app.use(express.static('client/dist'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.get('/products', (req, res) => {
-//   const productId = req.query.id;
-//   let productData = {};
-//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}`, {
-//     headers: {
-//       Authorization: config.API_KEY,
-//     },
-//   })
-//     .then((result) => {
-//       productData.productInfo = result.data;
-//     })
-//     .catch((err) => {
-//       console.log('err : ', err);
-//       res.status(500).send(err);
-//     })
-//     .then(() => {
-//       axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/styles`, {
-//         headers: {
-//           Authorization: config.API_KEY,
-//         },
-//     })
-//     .then((result) => {
-//       productData.productStyle = result.data
-//     })
-//     .catch((err) => {
-//       console.log('err : ', err);
-//       res.status(500).send(err);
-//     })
-//     .then(() => {
-//       res.send(productData);
-//     })
-//     .catch((err) => {
-//       console.log('err : ', err);
-//       res.status(500).send(err);
-//     })
-// });
+app.get('/products', (req, res) => {
+  const productID = req.query.id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productID}`, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((result) => {
+      // console.log(‘DATA’, result.data);
+      res.send(result.data);
+    })
+    .catch((err) => {
+      // console.log(‘ERROR HERE’, err);
+      res.status(500).send(err);
+    });
+});
+app.get('/products/styles', (req, res) => {
+  const productID = req.query.id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productID}/styles`, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((result) => {
+      // console.log(‘DATA’, result.data);
+      res.send(result.data);
+    })
+    .catch((err) => {
+      // console.log(‘ERROR HERE’, err);
+      res.status(500).send(err);
+    });
+});
 
-// app.get('/products/review', (req, res) => {
-//   const productId = req.query.id;
-//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/reviews/`, {
-//     headers: {
-//       Authorization: config.API_KEY,
-//     },
-//   })
-//     .then((result) => res.status(200).then);
-// });
+app.get('/products/review', (req, res) => {
+  const productId = req.query.id;
+  const productSort = req.query.sort;
+  const productPage = req.query.pages;
+
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=${productPage}&product_id=${productId}&sort=${productSort}`, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((result) => res.status(200).send(result.data))
+    .catch((err) => res.status(500).send(err));
+});
+
+app.get('/products/review/meta', (req, res) => {
+  const productId = req.query.id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${productId}`, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((result) => res.status(200).send(result.data))
+    .catch((err) => res.status(500).send(err));
+});
 
 app.get('/products/related', (req, res) => {
   const productId = req.query.id;
