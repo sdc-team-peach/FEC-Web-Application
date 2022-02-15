@@ -7,6 +7,8 @@ import Related from './related/Related';
 import Overview from './overview/Overview';
 
 function App() {
+  const data = dataFetcher.relatedFetcher();
+  console.log(data);
   return (
     <>
       <Overview />
