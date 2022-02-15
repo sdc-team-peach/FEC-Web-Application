@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../AppContext';
 
 function Reviews() {
+  const myContext = useContext(AppContext);
+
   return (
     <div>
-      reviews!
+      {myContext.productId}
     </div>
   );
 }
