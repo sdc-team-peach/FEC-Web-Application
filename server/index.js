@@ -101,6 +101,7 @@ app.get('/cart', (req, res) => {
 });
 
 app.post('/cart', (req, res) => {
+  //param is {sku_id: <somenumber>}
   const param = req.query;
   axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', param, {
     headers: {
