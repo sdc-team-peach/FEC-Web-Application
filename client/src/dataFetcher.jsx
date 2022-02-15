@@ -2,15 +2,14 @@ import axios from 'axios';
 import { useState, useEffect, useReducer } from 'react';
 
 const dataFetcher = {
-  productId: 40344,
 
-  overviewFetcher() {
+  overviewFetcher(productId) {
     const [productInfo, setProductInfo] = useState([]);
     const [productStyle, setProductStyle] = useState([]);
     useEffect(() => {
       axios.get('/products', {
         params: {
-          id: this.productId,
+          id: productId,
         },
       })
         .then((res) => {
@@ -19,7 +18,7 @@ const dataFetcher = {
         .then(() => {
           axios.get('/products/styles', {
             params: {
-              id: this.productId,
+              id: productId,
             },
           })
             .then((res) => {
@@ -30,13 +29,13 @@ const dataFetcher = {
     return { info: productInfo, styles: productStyle };
   },
 
-  reviewFetcher(pages, sort) {
+  reviewFetcher(productId, pages, sort) {
     const [reviews, setReviews] = useState();
 
     useEffect(() => {
       axios.get('/products/review', {
         params: {
-          id: this.productId,
+          id: productId,
           pages,
           sort,
         },
@@ -49,13 +48,13 @@ const dataFetcher = {
     return reviews;
   },
 
-  reviewMetaFetcher() {
+  reviewMetaFetcher(productId) {
     const [metaReview, setMetaReviews] = useState();
 
     useEffect(() => {
       axios.get('/products/review/meta', {
         params: {
-          id: this.productId,
+          id: productId,
         },
       })
         .then((res) => {
@@ -66,8 +65,7 @@ const dataFetcher = {
     return metaReview;
   },
 
-  relatedFetcher(id) {
-    const productId = id || 40344;
+  relatedFetcher(productId) {
     const [relatedProducts, setRelatedProducts] = useState();
     useEffect(() => {
       axios.get('/products/related', {
