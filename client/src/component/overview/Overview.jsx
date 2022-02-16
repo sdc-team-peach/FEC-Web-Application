@@ -6,15 +6,26 @@ import styleFetcher from './styleFetcher';
 import Style from './Style';
 
 function Overview() {
-  // const [currentPhoto, setCurrentPhoto] = useState('');
-  // const [currentProductStyle, setCurrentProductStyle] = useState('');
   const [allProductStyles, setAllProductStyles] = useState([]);
   console.log(styleFetcher());
-  const { productStyles, loading } = styleFetcher();
+  const { styles, loading } = styleFetcher();
   useEffect(() => {
-    setAllProductStyles([...allProductStyles, productStyles]);
-    console.log(allProductStyles);
-  }, [productStyles]);
+    setAllProductStyles([...allProductStyles, ...styles]);
+  }, [styles]);
+
+  return (
+    <div>
+      {loading && <h1>Loading...</h1>}
+      Overview
+      {/* {!loading && allProductStyles.map((style) => <Style style={style} />)} */}
+    </div>
+  );
+}
+
+export default Overview;
+
+
+
   // const myContext = useContext(AppContext);
   // const productStyleInfo = styleFetcher();
   /* FUNCTIONAL TO GET PHOTO BELOW
@@ -31,15 +42,3 @@ function Overview() {
   //   setCurrentProductStyle(prodInfo[0].photos[0].url);
   //   // console.log(prodInfo);
   // });
-  console.log(allProductStyles);
-  console.log(productStyles);
-  return (
-    <div>
-      {loading && <h1>Loading...</h1>}
-      Overview
-      {/* {!loading && allProductStyles.map((style) => <Style style={style} />)} */}
-    </div>
-  );
-}
-
-export default Overview;
