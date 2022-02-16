@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import AppContext from '../AppContext';
 
-const photoFetcher = async () => {
+const styleFetcher = async () => {
   const myContext = useContext(AppContext);
   const [loading, setLoading] = useState(true);
 
@@ -29,4 +29,4 @@ const photoFetcher = async () => {
   // });
 };
 
-export default photoFetcher;
+export default styleFetcher;
