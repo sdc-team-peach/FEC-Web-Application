@@ -14,10 +14,10 @@ function StyleComponent() {
   console.log(currentStyle);
   return (
     <div>
-      <h2>Colors</h2>
+      {currentStyle && <img src={currentStyle.photos[0].url} alt="new"/>}
       {currentStyle && <p>{currentStyle.original_price}</p>}
       {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)}
-      {/* {currentStyle && currentStyle.skus.map((sizes) => <Sizes key={sizes} sizes={sizes.size} />)} */}
+      <h2>Colors</h2>
       {!loading && allProductStyles.map((style) => <Styles key={style.style_id} style={style} />)}
     </div>
   );

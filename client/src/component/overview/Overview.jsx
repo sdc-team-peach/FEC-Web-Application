@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 // import ProductInfoFetcher from './ProductInfoFetcher';
 // import StyleFetcher from './StyleFetcher';
 // import Styles from './Styles';
+import styled from "styled-components";
+import { ProductContainer, Main, SideBar } from './ProductGrid';
 import StyleComponent from './StyleComponent';
 import ProductComponent from './ProductComponent';
 
@@ -17,12 +19,20 @@ function Overview() {
   //   setCurrentStyle(styles[0]);
   // }, [styles]);
 
+  // return (
+  //   <div>
+  //     Overview
+  //     <ProductComponent />
+  //     <StyleComponent />
+  //   </div>
+  // );
   return (
-    <div>
-      Overview
-      <ProductComponent />
-      <StyleComponent />
-    </div>
+    <ProductContainer>
+      <Main><ProductComponent /></Main>
+
+      <SideBar><StyleComponent /></SideBar>
+      <SideBar><ProductComponent /></SideBar>
+    </ProductContainer>
   );
 }
 
