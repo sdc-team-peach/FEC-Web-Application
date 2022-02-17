@@ -16,7 +16,7 @@ function StyleComponent() {
     <div>
       <h2>Colors</h2>
       {currentStyle && <p>{currentStyle.original_price}</p>}
-      {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} />)}
+      {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)}
       {/* {currentStyle && currentStyle.skus.map((sizes) => <Sizes key={sizes} sizes={sizes.size} />)} */}
       {!loading && allProductStyles.map((style) => <Styles key={style.style_id} style={style} />)}
     </div>

@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Sizes({ sizes }) {
+function Sizes({ sizes, inventory }) {
   console.log(sizes);
   return (
     <div>
-      {sizes}
+      <p>{sizes}</p>
+      Inventory
+     <p>{inventory}</p>
     </div>
   );
 }
