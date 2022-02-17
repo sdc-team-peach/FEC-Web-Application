@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 // import StyleFetcher from './StyleFetcher';
 // import Styles from './Styles';
 import styled from "styled-components";
-import { ProductContainer, Main, SideBar } from './ProductGrid';
+import { ProductContainer, Main, SideBar, SideBar2 } from './ProductGrid';
 import StyleComponent from './StyleComponent';
 import ProductComponent from './ProductComponent';
 
@@ -30,7 +30,7 @@ function Overview() {
     <ProductContainer>
       <Main><ProductComponent /></Main>
 
-      <SideBar><StyleComponent /></SideBar>
+      <SideBar2><StyleComponent /></SideBar2>
       <SideBar><ProductComponent /></SideBar>
     </ProductContainer>
   );

@@ -4,37 +4,31 @@ import { Container } from '../../GlobalStyle';
 export const ProductContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.12fr 1fr;
   grid-gap: 0.25rem;
   color: red;
   grid-template-areas:
     "main sidebar"
-    "main sidebar"
-
-  // height: 100vh;
-  // color: red;
-
-  // grid-template-rows: 1fr 0.5fr 0.5fr;
-  // grid-template-areas:
-  //     "main main main sidebar"
-  //     "main main main sidebar"
-  //     "main main main sidebar"
-  // text-align: center;
-  // grid-gap: 0.25rem;
-
+    "main sidebar2"
 `;
 
 export const Main = styled.main`
-  background: #1f2128;
-  color: white;
+  background: grey;
+  color: black;
   grid-area: main;
   padding: 0.25rem;
 `;
 
 export const SideBar = styled.div`
-  background: #1f2128;
-  color: white;
+  background: white;
+  color: black;
   grid-area: sidebar;
   padding: 0.25rem;
 `;
 
+export const SideBar2 = styled.div`
+  background: white;
+  color: black;
+  grid-area: sidebar2;
+  padding: 0.25rem;
+`;
