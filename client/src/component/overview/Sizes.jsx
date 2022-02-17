@@ -5,8 +5,7 @@ function Sizes({ sizes, inventory }) {
   return (
     <div>
       <p>{sizes}</p>
-      Inventory
-     <p>{inventory}</p>
+      <p>{inventory}</p>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Container } from '../../GlobalStyle';
 
 export const ProductContainer = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.12fr 1fr;
   grid-gap: 0.25rem;
   color: red;

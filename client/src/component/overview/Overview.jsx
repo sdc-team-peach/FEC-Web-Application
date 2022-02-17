@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { ProductContainer, Main, SideBar, SideBar2 } from './ProductGrid';
 import StyleComponent from './StyleComponent';
 import ProductComponent from './ProductComponent';
+import MainPhoto from './MainPhoto';
 
 function Overview() {
   // const [allProductStyles, setAllProductStyles] = useState([]);
@@ -28,8 +29,7 @@ function Overview() {
   // );
   return (
     <ProductContainer>
-      <Main><ProductComponent /></Main>
-
+      <Main><MainPhoto /></Main>
       <SideBar2><StyleComponent /></SideBar2>
       <SideBar><ProductComponent /></SideBar>
     </ProductContainer>

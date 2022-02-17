@@ -14,7 +14,6 @@ function StyleComponent() {
   console.log(currentStyle);
   return (
     <div>
-      {currentStyle && <img src={currentStyle.photos[0].url} alt="new"/>}
       {currentStyle && <p>{currentStyle.original_price}</p>}
       {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)}
       <h2>Colors</h2>
