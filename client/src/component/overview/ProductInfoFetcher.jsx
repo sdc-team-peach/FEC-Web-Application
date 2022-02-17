@@ -11,30 +11,30 @@ const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.MAKE_REQUEST:
-      return { styles: [], loading: true };
+      return { productInfo: [], loading: true };
     case ACTIONS.GET_DATA:
-      return { ...state, styles: action.payload.styles.results, loading: false };
+      return { ...state, productInfo: action.payload.productInfo, loading: false };
     case ACTIONS.ERROR:
       return {
-        ...state, styles: [], loading: false, err: action.payload.err,
+        ...state, productInfo: [], loading: false, err: action.payload.err,
       };
     default:
       return state;
   }
 }
-const StyleFetcher = () => {
+const ProductInfoFetcher = () => {
   const myContext = useContext(AppContext);
-  const [state, dispatch] = useReducer(reducer, { styles: [], loading: true });
+  const [state, dispatch] = useReducer(reducer, { productInfo: [], loading: true });
 
   useEffect(() => {
     dispatch({ type: ACTIONS.MAKE_REQUEST });
-    axios.get('/products/styles', {
+    axios.get('/products', {
       params: {
         id: myContext.productId,
       },
     })
       .then((res) => {
-        dispatch({ type: ACTIONS.GET_DATA, payload: { styles: res.data } });
+        dispatch({ type: ACTIONS.GET_DATA, payload: { productInfo: res.data } });
       })
       .catch((e) => {
         dispatch({ type: ACTIONS.ERROR, payload: { error: e } });
@@ -43,4 +43,4 @@ const StyleFetcher = () => {
   return state;
 };
 
-export default StyleFetcher;
+export default ProductInfoFetcher;

@@ -1,44 +1,29 @@
-import React, { useContext, useState, useEffect } from 'react';
-import AppContext from '../AppContext';
-import dataFetcher from '../../dataFetcher';
-import ProductPhoto from './ProductPhoto';
-import styleFetcher from './styleFetcher';
-import Style from './Style';
+import React, { useState, useEffect } from 'react';
+// import AppContext from '../AppContext';
+// import dataFetcher from '../../dataFetcher';
+// import ProductPhoto from './ProductPhoto';
+// import ProductInfoFetcher from './ProductInfoFetcher';
+// import StyleFetcher from './StyleFetcher';
+// import Styles from './Styles';
+import StyleComponent from './StyleComponent';
+import ProductComponent from './ProductComponent';
 
 function Overview() {
-  const [allProductStyles, setAllProductStyles] = useState([]);
-  console.log(styleFetcher());
-  const { styles, loading } = styleFetcher();
-  useEffect(() => {
-    setAllProductStyles([...allProductStyles, ...styles]);
-  }, [styles]);
+  // const [allProductStyles, setAllProductStyles] = useState([]);
+  // const { styles, loading } = StyleFetcher();
+  // const [currentStyle, setCurrentStyle] = useState('');
+  // useEffect(() => {
+  //   setAllProductStyles([...allProductStyles, ...styles]);
+  //   setCurrentStyle(styles[0]);
+  // }, [styles]);
 
   return (
     <div>
-      {loading && <h1>Loading...</h1>}
       Overview
-      {/* {!loading && allProductStyles.map((style) => <Style style={style} />)} */}
+      <ProductComponent />
+      <StyleComponent />
     </div>
   );
 }
 
 export default Overview;
-
-
-
-  // const myContext = useContext(AppContext);
-  // const productStyleInfo = styleFetcher();
-  /* FUNCTIONAL TO GET PHOTO BELOW
-  productStyleInfo.then((prodInfo) => {
-    //remember to set loading to false
-    const photo = prodInfo[0].photos[0].url;
-    console.log('PHOTO:', photo);
-    setCurrentPhoto(photo);
-  });
-  */
-  // productStyleInfo.then((prodInfo) => {
-  //   setProductStyles(prodInfo);
-  //   console.log(productStyles);
-  //   setCurrentProductStyle(prodInfo[0].photos[0].url);
-  //   // console.log(prodInfo);
-  // });
