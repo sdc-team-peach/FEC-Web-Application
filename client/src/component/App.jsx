@@ -55,7 +55,7 @@ function App() {
 
   return (
     <AppContext.Provider value={productIdSetting}>
-      {/* <Overview /> */}
+      <Overview />
       <Related />
       <Reviews />
     </AppContext.Provider>
