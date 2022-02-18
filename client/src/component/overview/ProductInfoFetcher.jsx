@@ -35,6 +35,7 @@ const ProductInfoFetcher = () => {
     })
       .then((res) => {
         dispatch({ type: ACTIONS.GET_DATA, payload: { productInfo: res.data } });
+        myContext.setGlobalProductInfo(res.data);
       })
       .catch((e) => {
         dispatch({ type: ACTIONS.ERROR, payload: { error: e } });
