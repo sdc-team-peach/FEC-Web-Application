@@ -5,8 +5,7 @@ function ProductComponent() {
   const { productInfo, loading } = ProductInfoFetcher();
   return (
     <div>
-      <h2>Product</h2>
-      {!loading && <p>{productInfo.name}</p>}
+      {!loading && <h1>{productInfo.name}</h1>}
       {!loading && <p>{productInfo.slogan}</p>}
       {!loading && <p>{productInfo.description}</p>}
     </div>
