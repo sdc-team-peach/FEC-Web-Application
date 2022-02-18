@@ -22,6 +22,12 @@ export const CardImage = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
 `;
 
+export const ModalIcon = styled.a`
+grid-area: image;
+position: fixed;
+top: 10px;
+left: 220px;
+`
 export const CardTextWrapper = styled.div`
   grid-area: text;
   /* margin: 25px; */
@@ -63,7 +69,7 @@ export const CardTextPrice = styled.p`
   text-align: left;
   position: absolute;
   left: 10px;
-  bottom: 15px;
+  top: 365px;
 
 `;
 
@@ -76,7 +82,7 @@ export const CardTextSalesPriceOriginal = styled.p`
   text-align: left;
   position: absolute;
   left: 10px;
-  bottom: 15px;
+  top: 365px;
 `;
 
 export const CardTextSalesPrice = styled.span`
@@ -87,5 +93,5 @@ export const CardTextSalesPrice = styled.span`
   text-align: left;
   position: absolute;
   left: 70px;
-  bottom: 15px;
+  top: 365px;
 `;

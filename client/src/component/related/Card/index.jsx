@@ -4,6 +4,7 @@ import React from 'react';
 import {
   CardWrapper,
   CardImage,
+  ModalIcon,
   CardTextWrapper,
   CardTextTitle,
   CardTextBody,
@@ -14,13 +15,12 @@ import {
 } from './CardStyle';
 
 export function Card({
-  title, imgUrl, price, body, salesPrice,
+  title, imgUrl, price, body, salesPrice, handleModalOnclick,
 }) {
-  console.log(salesPrice);
-
   return (
     <CardWrapper>
       <CardImage background={imgUrl} />
+      <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon>
       <CardTextWrapper>
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>

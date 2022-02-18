@@ -4,33 +4,35 @@ import Reviews from './reviews/Reviews';
 import Related from './related/Related';
 import Overview from './overview/Overview';
 import AppContext from './AppContext';
+import { ComparisonModal } from './related/ComparisonModal';
+
 
 function App() {
-<<<<<<< HEAD
-<<<<<<< HEAD
   const [globalProductId, setGlobalProductId] = useState(40344);
-  const [globalProductInfo, setGlobalProductInfo] = useState(40344);
-=======
-  const [globalProductId, setGlobalProductId] = useState(40346);
-=======
-  const [globalProductId, setGlobalProductId] = useState(40885);
->>>>>>> 9c40a9c (card has progress)
-  //40885 has sales
+  const [globalProductInfo, setGlobalProductInfo] = useState();
+  const [globalTheRelatedInfo, setGlobalTheRelatedInfo] = useState('hello');
+  const [modalClicked, setModalClicked] = useState(false);
 
->>>>>>> f858a0b (card layout half done)
   const productIdSetting = {
     productId: globalProductId,
     productInfo: globalProductInfo,
+    theRelatedInfo: globalTheRelatedInfo,
+    modalStatus: modalClicked,
     setGlobalProductInfo,
     setGlobalProductId,
+    setGlobalTheRelatedInfo,
+    setModalClicked,
   };
 
   return (
-    <AppContext.Provider value={productIdSetting}>
-      <Overview />
-      <Related />
-      <Reviews />
-    </AppContext.Provider>
+    <div>
+      <AppContext.Provider value={productIdSetting}>
+        <Overview />
+        <Related />
+        <Reviews />
+        {modalClicked && <ComparisonModal />}
+      </AppContext.Provider>
+    </div>
   );
 }
 

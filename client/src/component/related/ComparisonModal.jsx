@@ -1,9 +1,14 @@
 import React, { useState , useContext } from 'react';
+import { Modal } from './Modal';
 
-export function ComparisonModal() {
- 
+export function ComparisonModal({relatedFeatures, theFeature,}) {
+  console.log(relatedFeatures, theFeature)
+  return (
+    <div>
+      {/* {relatedFeatures.map(feature => <p>{feature.feature} {feature.value}</p> )} */}
+      <Modal />
 
-  return(
+    </div>
 
   );
 }
