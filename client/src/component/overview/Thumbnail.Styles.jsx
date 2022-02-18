@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import { Container } from '../../GlobalStyle';
 
-export const Picture = styled.div`
-  display: flex;
+export const Picture = styled(Container)`
+  display: block;
   text-align: justify;
   justify-content: space-around;
   align-items: center;
   background-color: white;
   height: 100%;
   width: 50%;
+  ${Container}
 `;
 export const ThumbnailImage = styled.div`
   background-image: ${({ src }) => `url(${src})`};
@@ -20,5 +21,5 @@ export const ThumbnailImage = styled.div`
 `;
 
 export const Text = styled.div`
-  display: flex
+  display: block
 `;

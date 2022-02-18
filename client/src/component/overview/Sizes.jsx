@@ -1,11 +1,12 @@
 import React from 'react';
+import { SizeContainer, Text } from './Sizes.Styles';
 
 function Sizes({ sizes, inventory }) {
   return (
-    <div>
-      <p>{sizes}</p>
-      <p>{inventory}</p>
-    </div>
+    <SizeContainer>
+      <Text>{sizes}</Text>
+      <Text>{inventory}</Text>
+    </SizeContainer>
   );
 }
 
