@@ -1,14 +1,19 @@
 import React from 'react';
+import { Picture, ThumbnailImage, Text } from './Thumbnail.Styles';
 
 export default function Styles({ style }) {
   // console.log(style);
   return (
     <div>
-      {style.name}
-      <img
-        src={style.photos[0].thumbnail_url}
-        alt="new"
-      />
+      <Picture>
+        <ThumbnailImage
+          src={style.photos[0].thumbnail_url}
+        />
+        <Text>
+          {style.name}
+        </Text>
+      </Picture>
+
     </div>
   );
 }
