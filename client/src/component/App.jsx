@@ -7,10 +7,14 @@ import AppContext from './AppContext';
 
 function App() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [globalProductId, setGlobalProductId] = useState(40344);
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
 =======
   const [globalProductId, setGlobalProductId] = useState(40346);
+=======
+  const [globalProductId, setGlobalProductId] = useState(40885);
+>>>>>>> 9c40a9c (card has progress)
   //40885 has sales
 
 >>>>>>> f858a0b (card layout half done)
