@@ -47,7 +47,10 @@ function Related() {
 
   return (
     <div>
-      {/* <Carousel
+      <h2>
+        Recommendation
+      </h2>
+      <Carousel
         slidesToShow={4}
         center
         centerPadding={30}
@@ -94,10 +97,10 @@ function Related() {
         {relatedProducts.map(
           (relatedProduct) => <RelatedProductCard relatedProduct={relatedProduct} />,
         )}
-      </Carousel> */}
-      {relatedProducts.map(
+      </Carousel>
+      {/* {relatedProducts.map(
         (relatedProduct) => <RelatedProductCard relatedProduct={relatedProduct} />,
-      )}
+      )} */}
     </div>
   );
 }
