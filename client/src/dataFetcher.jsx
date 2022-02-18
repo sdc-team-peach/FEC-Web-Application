@@ -65,20 +65,20 @@ const dataFetcher = {
     return metaReview;
   },
 
-  relatedFetcher(productId) {
-    const [relatedProducts, setRelatedProducts] = useState();
-    useEffect(() => {
+  relatedFetcher(productId, cb) {
+    // const [relatedProducts, setRelatedProducts] = useState();
+    // useEffect(() => {
       axios.get('/products/related', {
         params: { id: productId },
       })
         .then((res) => {
-          setRelatedProducts(res.data);
+          cb(res.data);
         })
         .catch((err) => {
           console.log('err fetching related products', err);
         });
-    }, []);
-    return relatedProducts;
+    // }, []);
+    // return relatedProducts;
   },
 };
 

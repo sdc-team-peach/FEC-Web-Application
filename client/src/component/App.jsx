@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Reviews from './reviews/Reviews';
+// eslint-disable-next-line import/no-named-as-default
 import Related from './related/Related';
 import Overview from './overview/Overview';
 import AppContext from './AppContext';

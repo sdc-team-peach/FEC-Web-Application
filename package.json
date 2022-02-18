@@ -43,6 +43,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "styled-components": "^5.3.3",
+    "styled-components-carousel": "^0.2.0",
     "underscore": "^1.12.1"
   }
 }
