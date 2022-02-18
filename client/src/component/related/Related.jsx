@@ -1,39 +1,35 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from 'styled-components-carousel';
+import styled from 'styled-components';
 import dataFetcher from '../../dataFetcher';
 import AppContext from '../AppContext';
 import RelatedProductCard from './RelatedProductCard';
 
-
 function Related() {
   const myContext = useContext(AppContext);
 
-  // const fetchingRelated = async () => {
-  //   const res = await axios.get('/products/related', {
-  //     params: { id: myContext.productId },
-  //   });
-  //   return res.data;
-  // };
-
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  // const fetchingRelated = async () => {
-  //   const res = await axios.get('/products/related', {
-  //     params: { id: myContext.productId },
-  //   });
-  //   return res.data;
-  // };
-
-  // useEffect(() => {
-  //   dataFetcher.relatedFetcher(myContext.productId, setRelatedProducts);
-  // }, []);
-
   const fetchingRelated = async () => {
-    const res = await axios.get('/products/related', {
+    const res1 = await axios.get('/products/related/styles', {
       params: { id: myContext.productId },
     });
-    setRelatedProducts(res.data);
+    const res2 = await axios.get('/products/related', {
+      params: { id: myContext.productId },
+    });
+    console.log(res1.data, res2.data);
+    const result = res1.data.map((style) => {
+      for (let item of res2.data) {
+        // console.log(item.id)
+        if (Number(style.product_id) === item.id) {
+          style.title = item.name;
+          style.slogan = item.slogan;
+        }
+      }
+      return style;
+    });
+    setRelatedProducts(result);
   };
 
   useEffect(() => {

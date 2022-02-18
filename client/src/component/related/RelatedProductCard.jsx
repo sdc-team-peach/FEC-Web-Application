@@ -14,7 +14,8 @@ function RelatedProductCard({ relatedProduct }) {
     <div>
       <Card
         imgUrl={relatedProduct.results[0].photos[0].url}
-        title={relatedProduct.results[0].product_id}/>
+        title={relatedProduct.title}
+        body={relatedProduct.slogan}/>
       {/* <div>
         {relatedProduct.results[0].photos[0].url}
       </div> */}

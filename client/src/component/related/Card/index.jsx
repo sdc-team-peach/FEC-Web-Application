@@ -1,5 +1,4 @@
 import React from 'react';
-// import { CardType } from './Types';
 import {
   CardWrapper,
   CardImage,
