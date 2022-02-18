@@ -47,8 +47,8 @@ app.get('/products/review', (req, res) => {
   const productId = req.query.id;
   const productSort = req.query.sort;
   const productPage = req.query.pages;
-
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=${productPage}&product_id=${productId}&sort=${productSort}`, {
+  const productCount = req.query.count;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=${productPage}&product_id=${productId}&sort=${productSort}&count=${productCount}`, {
     headers: {
       Authorization: config.API_KEY,
     },
