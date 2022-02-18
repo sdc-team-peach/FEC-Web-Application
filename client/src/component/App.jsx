@@ -6,9 +6,11 @@ import AppContext from './AppContext';
 
 function App() {
   const [globalProductId, setGlobalProductId] = useState(40344);
-
+  const [globalProductInfo, setGlobalProductInfo] = useState(40344);
   const productIdSetting = {
     productId: globalProductId,
+    productInfo: globalProductInfo,
+    setGlobalProductInfo,
     setGlobalProductId,
   };
 
