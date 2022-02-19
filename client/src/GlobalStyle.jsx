@@ -134,6 +134,11 @@ body{
   .indicators > button {
     margin: 5px;
   }
+
+  .indicators > button.active {
+    background-color: green;
+    color: white;
+  }
 `;
 
 export const Container = styled.div`

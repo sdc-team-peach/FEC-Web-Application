@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import StyleFetcher from './StyleFetcher';
+import StyleFetcher from './styleFetcher';
 import Carousel, { CarouselItem } from './Carousel';
 
 function MainPhoto() {
@@ -11,7 +11,7 @@ function MainPhoto() {
   }, [styles]);
   return (
     <Carousel>
-      {currentStyle && currentStyle.photos.map((photo) => <CarouselItem key={photo.thumbnail_url}>{photo.thumbnail_url}</CarouselItem>) }
+      {currentStyle && currentStyle.photos.map((photo) => <CarouselItem key={photo.thumbnail_url} photo={photo.thumbnail_url}>{photo.thumbnail_url}</CarouselItem>) }
     </Carousel>
   );
 }
