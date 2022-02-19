@@ -36,24 +36,23 @@ export const Container = styled.div`
   padding: 0 50px;
   max-width: 1300px;
   width: 100%;
+  different content type
+  @media (max-width:400px){
+  padding: 0 10px;
+  }
+  @media (max-width:991px) {
+  padding: 0 30px;
+  }
+
+  @media (min-width: 1500px) {
+  max-width: 1500px;
+  }
+
+  @media (min-width: 1800px) {
+  max-width: 1800px;
+  padding: 0 30px;
+  }
 `;
-
-// different content type
-// @media (max-width:400px){
-//   padding: 0 10px;
-// }
-// @media (max-width:991px) {
-//   padding: 0 30px;
-// }
-
-// @media (min-width: 1500px) {
-//   max-width: 1500px;
-// }
-
-// @media (min-width: 1800px) {
-//   max-width: 1800px;
-//   padding: 0 30px;
-// }
 
 export const Button = styled.button`
 border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
@@ -65,6 +64,7 @@ outline: none;
 cursor: pointer;
 border: none;
 transition: all .5s ease;
+margin: 8px;
 
 &:hover{
     background-color: ${({ primary }) => (primary ? '#fff' : '#cde306')};

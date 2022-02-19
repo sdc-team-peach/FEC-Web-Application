@@ -47,8 +47,8 @@ app.get('/products/review', (req, res) => {
   const productId = req.query.id;
   const productSort = req.query.sort;
   const productPage = req.query.pages;
-
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=${productPage}&product_id=${productId}&sort=${productSort}`, {
+  const productCount = req.query.count;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=${productPage}&product_id=${productId}&sort=${productSort}&count=${productCount}`, {
     headers: {
       Authorization: config.API_KEY,
     },
@@ -68,6 +68,35 @@ app.get('/products/review/meta', (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
+app.get('/products/related/styles', (req, res) => {
+  const productId = req.query.id;
+  console.log(productId);
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .catch((err) => {
+      // console.log('err getting releated products id arr', err);
+      res.status(500).send(err);
+    })
+    .then((resultArr) => {
+      // console.log('this is the arr', resultArr.data);
+      const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}/styles`, {
+        headers: {
+          Authorization: config.API_KEY,
+        },
+      }));
+      axios.all(requests).then(axios.spread((...responses) => {
+        // console.log(responses.data);
+        const responseData = responses.map((response) => response.data);
+        // console.log(responseData)
+        res.send(responseData);
+      })).catch((errors) => {
+        res.status(500).send(errors);
+      });
+    });
+});
 app.get('/products/related', (req, res) => {
   const productId = req.query.id;
   console.log(productId);
@@ -77,12 +106,12 @@ app.get('/products/related', (req, res) => {
     },
   })
     .catch((err) => {
-      console.log('err getting releated products id arr', err);
+      // console.log('err getting releated products id arr', err);
       res.status(500).send(err);
     })
     .then((resultArr) => {
-      console.log('this is the arr', resultArr.data);
-      const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}/styles`, {
+      // console.log('this is the arr', resultArr.data);
+      const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}`, {
         headers: {
           Authorization: config.API_KEY,
         },
@@ -90,13 +119,13 @@ app.get('/products/related', (req, res) => {
       axios.all(requests).then(axios.spread((...responses) => {
         // console.log(responses.data);
         const responseData = responses.map((response) => response.data);
+        // console.log(responseData)
         res.send(responseData);
       })).catch((errors) => {
         res.status(500).send(errors);
       });
     });
 });
-
 app.get('/cart', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
     headers: {
@@ -110,7 +139,6 @@ app.get('/cart', (req, res) => {
       res.send(response.data);
     });
 });
-
 app.post('/cart', (req, res) => {
   //param is {sku_id: <somenumber>}
   const param = req.query;
