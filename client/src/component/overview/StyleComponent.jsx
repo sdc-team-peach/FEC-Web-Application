@@ -2,19 +2,16 @@ import React, { useState, useEffect, useContext } from 'react';
 import StyleFetcher from './StyleFetcher';
 import Styles from './Styles';
 import Sizes from './Sizes';
-<<<<<<< HEAD
+
 import AppContext from '../AppContext';
-=======
+
 import { Picture } from './Thumbnail.Styles';
-<<<<<<< HEAD
->>>>>>> dfee445 (got styles to line up in rows)
-=======
+
+
 import SizesDropdownMenu from './SizesDropdownMenu';
-<<<<<<< HEAD
->>>>>>> bf51857 (working on drop down and it's not messing up currently)
-=======
-import AppContext from '../AppContext';
->>>>>>> a1638c5 (added product style globally)
+
+
+
 
 function StyleComponent() {
   const myContext = useContext(AppContext);
