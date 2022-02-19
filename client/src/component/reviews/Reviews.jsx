@@ -6,7 +6,7 @@ function Reviews() {
 
   return (
     <div>
-      {myContext.productId}
+      {/* {myContext.productId} */}
     </div>
   );
 }
