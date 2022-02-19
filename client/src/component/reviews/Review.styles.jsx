@@ -22,17 +22,16 @@ margin: 15px;
 padding; 10px;
 text-align: left;
 align-items: left;
-width: 650px;
+width: 800px;
 float: left;
 `;
 
 export const RatingBreakdownContainer = styled.div`
 margin: 15px;
-padding; 10px;
 text-align: left;
 align-items: left;
 float: left;
-height: 300px;
+height: 350px;
 width: 250px;
 background-color: #fff;
 `;
