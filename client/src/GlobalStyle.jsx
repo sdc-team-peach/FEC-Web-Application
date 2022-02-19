@@ -108,8 +108,15 @@ body{
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
 
+  .img {
+    width:100%;
+    max-width:400px;
+  }
+
   .carousel {
     overflow: hidden;
+    width:100%;
+    max-width:650px;
   }
 
   .inner {

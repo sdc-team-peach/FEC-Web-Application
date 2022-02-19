@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 // import './styles.css';
-import GlobalStyles from '../../GlobalStyle';
+import GlobalStyles, { Button } from '../../GlobalStyle';
 
 function SizesDropdownMenu({ sizes }) {
   const dropdownRef = useRef(null);
@@ -24,9 +24,9 @@ function SizesDropdownMenu({ sizes }) {
   }, [isActive]);
   return (
     <div className="menu-container">
-      <button onClick={onClick} className="menu-trigger">
+      <Button onClick={onClick} className="menu-trigger">
         <span>{currentSize}</span>
-      </button>
+      </Button>
       <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
         <ul>
           {listSizes}
