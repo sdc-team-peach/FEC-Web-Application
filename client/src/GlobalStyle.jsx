@@ -129,7 +129,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 200px;
-    background-color: green;
+    background-color: #cde306;
     color: white;
   }
 
@@ -143,8 +143,8 @@ body{
   }
 
   .indicators > button.active {
-    background-color: green;
-    color: white;
+    background-color: #cde306;
+    color: black;
   }
 `;
 

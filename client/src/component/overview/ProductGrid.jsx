@@ -18,6 +18,7 @@ export const Main = styled.main`
   grid-area: main;
   padding: 0.25rem;
   align-content: center;
+  display: flex;
 `;
 
 export const SideBar = styled.div`
