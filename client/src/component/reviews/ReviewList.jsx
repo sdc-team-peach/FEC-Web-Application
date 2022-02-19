@@ -10,7 +10,7 @@ import {
 function ReviewList({ review }) {
   return (
     <ReviewContainer>
-      <StarRatings currentRate={review.rating} />
+      <StarRatings currentRating={review.rating} />
       <Content>
         <Title>
           <Subtext>

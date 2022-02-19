@@ -6,7 +6,7 @@ import reviewFetcher from './reviewFetcher';
 import Breakdown from './breakdown/Breakdown';
 import ReviewList from './ReviewList';
 import {
-  SelectContainer, ReviewTitle, ReviewListContainer, RatingBreakdownContainer,
+  SelectContainer, ReviewTitle, ReviewListContainer, RatingBreakdownContainer, Container,
 } from './Review.styles';
 
 function Reviews() {
@@ -49,6 +49,7 @@ function Reviews() {
   console.log(reviewAll);
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
 <<<<<<< HEAD
       {/* {myContext.productId} */}
@@ -59,6 +60,9 @@ function Reviews() {
     </div>
 =======
     <>
+=======
+    <Container>
+>>>>>>> d67c599 (rating star is now available to use in every widget)
       <RatingBreakdownContainer>
         <Breakdown />
       </RatingBreakdownContainer>
@@ -74,8 +78,12 @@ function Reviews() {
         <Button onClick={() => incrementByTwo()}> More Reviews </Button>
         <Button> Add a Review </Button>
       </ReviewListContainer>
+<<<<<<< HEAD
     </>
 >>>>>>> 0ac910e (bundle fetching review data and loading)
+=======
+    </Container>
+>>>>>>> d67c599 (rating star is now available to use in every widget)
   );
 }
 

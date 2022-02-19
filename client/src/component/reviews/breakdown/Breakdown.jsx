@@ -36,7 +36,7 @@ function Breakdown() {
         <>
           <StarRate>
             <h1>{ratingAverage}</h1>
-            <StarRatings currentRate={ratingAverage} />
+            <StarRatings currentId={metaData.product_id} />
           </StarRate>
           <RatingBars name="Fit" value={metaData.characteristics.Fit.value} max={5} />
           <RatingBars name="Length" value={metaData.characteristics.Length.value} max={5} />

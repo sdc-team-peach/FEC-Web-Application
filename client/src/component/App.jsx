@@ -9,14 +9,20 @@ import { Modal } from './related/Modal';
 
 function App() {
   const [globalProductId, setGlobalProductId] = useState(40344);
+<<<<<<< HEAD
   const [globalProductInfo, setGlobalProductInfo] = useState();
   const [globalProductStyle, setGlobalProductStyle] = useState();
   const [globalTheRelatedInfo, setGlobalTheRelatedInfo] = useState('hello');
   const [modalClicked, setModalClicked] = useState(false);
+=======
+  const [globalProductInfo, setGlobalProductInfo] = useState(40344);
+  const [globalAverage, setGlobalState] = useState(0);
+>>>>>>> d67c599 (rating star is now available to use in every widget)
 
   const productIdSetting = {
     productId: globalProductId,
     productInfo: globalProductInfo,
+<<<<<<< HEAD
     productStyle: globalProductStyle,
     theRelatedInfo: globalTheRelatedInfo,
     modalStatus: modalClicked,
@@ -40,6 +46,20 @@ function App() {
         />}
       </AppContext.Provider>
     </div>
+=======
+    average: globalAverage,
+    setGlobalProductInfo,
+    setGlobalProductId,
+    setGlobalState,
+  };
+
+  return (
+    <AppContext.Provider value={productIdSetting}>
+      {/* <Overview /> */}
+      <Related />
+      <Reviews />
+    </AppContext.Provider>
+>>>>>>> d67c599 (rating star is now available to use in every widget)
   );
 }
 
