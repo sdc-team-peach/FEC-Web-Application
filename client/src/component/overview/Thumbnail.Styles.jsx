@@ -7,17 +7,6 @@ export const Picture = styled(Container)`
   grid-gap: 0.25rem;
   grid-auto-rows: 150px;
 `;
-// export const Picture = styled(Container)`
-//   display: inline-flex;
-//   text-align: justify;
-//   justify-content: space-around;
-//   align-items: center;
-//   background-color: white;
-//   height: 100%;
-//   width: 100%;
-
-//   ${Container}
-// `;
 
 export const ThumbnailImage = styled.div`
   background-image: ${({ src }) => `url(${src})`};

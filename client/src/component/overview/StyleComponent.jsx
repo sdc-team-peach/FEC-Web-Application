@@ -6,7 +6,11 @@ import Sizes from './Sizes';
 import AppContext from '../AppContext';
 =======
 import { Picture } from './Thumbnail.Styles';
+<<<<<<< HEAD
 >>>>>>> dfee445 (got styles to line up in rows)
+=======
+import SizesDropdownMenu from './SizesDropdownMenu';
+>>>>>>> bf51857 (working on drop down and it's not messing up currently)
 
 function StyleComponent() {
   const myContext = useContext(AppContext);
@@ -22,11 +26,15 @@ function StyleComponent() {
   return (
     <div>
       {currentStyle && <p>{currentStyle.original_price}</p>}
-      {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)}
+
       <h2>Colors</h2>
       <Picture>
       {!loading && allProductStyles.map((style) => <Styles key={style.style_id} style={style} />)}
       </Picture>
+
+      {/* {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)} */}
+
+      {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
     </div>
   );
 }

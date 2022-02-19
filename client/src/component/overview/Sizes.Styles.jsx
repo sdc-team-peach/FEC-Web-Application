@@ -12,8 +12,11 @@ export const SizeContainer = styled.div`
 `;
 
 export const Text = styled.div`
+  display: inline-flex;
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
+  position: relative;
+  left: 13px;
 `;
