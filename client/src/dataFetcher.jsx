@@ -49,7 +49,8 @@ const dataFetcher = {
   },
 
   reviewMetaFetcher(productId) {
-    const [metaReview, setMetaReviews] = useState();
+    const [metaReview, setMetaReviews] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       axios.get('/products/review/meta', {
@@ -60,6 +61,8 @@ const dataFetcher = {
         .then((res) => {
           setMetaReviews(res.data);
         });
+
+      return () => setLoading(false);
     }, []);
 
     return metaReview;

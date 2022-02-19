@@ -58,6 +58,7 @@ app.get('/products/review', (req, res) => {
 });
 
 app.get('/products/review/meta', (req, res) => {
+  console.log(req.query.id);
   const productId = req.query.id;
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${productId}`, {
     headers: {
