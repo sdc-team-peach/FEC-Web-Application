@@ -107,6 +107,33 @@ body{
   .menu:hover {
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
+
+  .carousel {
+    overflow: hidden;
+  }
+
+  .inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+  }
+
+  .carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: green;
+    color: white;
+  }
+
+  .indicators {
+    display: flex;
+    justify-content: center;
+  }
+
+  .indicators > button {
+    margin: 5px;
+  }
 `;
 
 export const Container = styled.div`

@@ -10,6 +10,7 @@ import { ProductContainer, Main, SideBar, SideBar2 } from './ProductGrid';
 import StyleComponent from './StyleComponent';
 import ProductComponent from './ProductComponent';
 import MainPhoto from './MainPhoto';
+import Carousel, { CarouselItem } from './Carousel';
 
 function Overview() {
   // const [allProductStyles, setAllProductStyles] = useState([]);

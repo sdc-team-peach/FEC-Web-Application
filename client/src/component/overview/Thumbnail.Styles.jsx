@@ -21,5 +21,5 @@ export const ThumbnailImage = styled.div`
 `;
 
 export const Text = styled.div`
-  display: inline-block;
+  display: inline-flex;
 `;
