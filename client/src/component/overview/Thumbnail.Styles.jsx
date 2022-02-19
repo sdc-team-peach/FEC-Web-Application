@@ -1,16 +1,28 @@
 import styled from 'styled-components';
 import { Container } from '../../GlobalStyle';
 
+// export const Picture = styled(Container)`
+//   display: inline;
+//   text-align: justify;
+//   justify-content: space-around;
+//   align-items: center;
+//   background-color: white;
+//   height: 100%;
+//   width: 50%;
+//   ${Container}
+// `;
 export const Picture = styled(Container)`
-  display: block;
+  display: inline-flex;
   text-align: justify;
   justify-content: space-around;
   align-items: center;
   background-color: white;
   height: 100%;
-  width: 50%;
+  width: 100%;
+
   ${Container}
 `;
+
 export const ThumbnailImage = styled.div`
   background-image: ${({ src }) => `url(${src})`};
   background-size: cover;
@@ -21,5 +33,5 @@ export const ThumbnailImage = styled.div`
 `;
 
 export const Text = styled.div`
-  display: block
+  display: inline
 `;

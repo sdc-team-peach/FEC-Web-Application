@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SizeContainer = styled.div`
   display: inline-flex;
+  width: 50px;
   background-color: lightgrey;
   border: 1px solid black;
   margin-top: 5px;
