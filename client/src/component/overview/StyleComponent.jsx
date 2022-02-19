@@ -10,7 +10,11 @@ import { Picture } from './Thumbnail.Styles';
 >>>>>>> dfee445 (got styles to line up in rows)
 =======
 import SizesDropdownMenu from './SizesDropdownMenu';
+<<<<<<< HEAD
 >>>>>>> bf51857 (working on drop down and it's not messing up currently)
+=======
+import AppContext from '../AppContext';
+>>>>>>> a1638c5 (added product style globally)
 
 function StyleComponent() {
   const myContext = useContext(AppContext);

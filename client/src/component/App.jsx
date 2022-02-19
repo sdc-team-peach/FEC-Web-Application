@@ -12,12 +12,17 @@ function App() {
   const [globalTheRelatedInfo, setGlobalTheRelatedInfo] = useState('hello');
   const [modalClicked, setModalClicked] = useState(false);
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
+<<<<<<< HEAD
   const [globalAverage, setGlobalState] = useState(0);
 
+=======
+  const [globalProductStyle, setGlobalProductStyle] = useState();
+>>>>>>> a1638c5 (added product style globally)
   const productIdSetting = {
     productId: globalProductId,
     productInfo: globalProductInfo,
     productStyle: globalProductStyle,
+<<<<<<< HEAD
     theRelatedInfo: globalTheRelatedInfo,
     modalStatus: modalClicked,
     setGlobalProductInfo,
@@ -25,6 +30,11 @@ function App() {
     setGlobalProductStyle,
     setGlobalTheRelatedInfo,
     setModalClicked,
+=======
+    setGlobalProductInfo,
+    setGlobalProductId,
+    setGlobalProductStyle,
+>>>>>>> a1638c5 (added product style globally)
   };
 
   return (
