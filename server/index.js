@@ -71,7 +71,6 @@ app.get('/products/review/meta', (req, res) => {
 app.get('/products/related/styles', (req, res) => {
   const productId = req.query.id;
   console.log(productId);
-
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`, {
     headers: {
       Authorization: config.API_KEY,
@@ -98,11 +97,9 @@ app.get('/products/related/styles', (req, res) => {
       });
     });
 });
-
 app.get('/products/related', (req, res) => {
   const productId = req.query.id;
   console.log(productId);
-
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`, {
     headers: {
       Authorization: config.API_KEY,
@@ -129,7 +126,6 @@ app.get('/products/related', (req, res) => {
       });
     });
 });
-
 app.get('/cart', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
     headers: {
@@ -143,7 +139,6 @@ app.get('/cart', (req, res) => {
       res.send(response.data);
     });
 });
-
 app.post('/cart', (req, res) => {
   //param is {sku_id: <somenumber>}
   const param = req.query;
