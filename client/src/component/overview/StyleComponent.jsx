@@ -7,11 +7,11 @@ import AppContext from '../AppContext';
 
 import { Picture } from './Thumbnail.Styles';
 
-
 import SizesDropdownMenu from './SizesDropdownMenu';
 
+import QuantityDropdownMenu from './QuantityDropdownMenu';
 
-
+import AddToCartButton from './AddToCartButton';
 
 function StyleComponent() {
   const myContext = useContext(AppContext);
@@ -28,12 +28,11 @@ function StyleComponent() {
     <div>
       {currentStyle && <p>{currentStyle.original_price}</p>}
       {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
+      {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
+      {currentStyle && <AddToCartButton />}
       <Picture>
       {!loading && allProductStyles.map((style) => <Styles key={style.style_id} style={style} />)}
       </Picture>
-
-      {/* {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)} */}
-
     </div>
   );
 }
