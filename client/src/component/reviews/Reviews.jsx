@@ -1,12 +1,21 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import AppContext from '../AppContext';
 import StarRatings from '../ratings/Ratings';
-import reviewFetcher from './reviewFetcher';
+import { Button } from '../../GlobalStyle';
+import { reviewFetcher, reviewMetaFetcher } from './reviewFetcher';
+import ReviewList from './ReviewList';
 
 function Reviews() {
-  const reveiwData = reviewFetcher();
+  const [page, setPage] = useState(1);
+  const { reviews, loading } = reviewFetcher(page, 'newest', 2);
+console.log(reviews, loading);
+
+  function incrementByTwo() {
+    setPage((initial) => initial + 2);
+  }
+
   return (
+<<<<<<< HEAD
     <div>
 <<<<<<< HEAD
       {/* {myContext.productId} */}
@@ -15,6 +24,14 @@ function Reviews() {
       {reveiwData.product_id}
 >>>>>>> 3eb8882 (bundle minor changes)
     </div>
+=======
+    <>
+      {loading && <h1>loading...</h1>}
+      {!loading && reviews.results.map((review) => <ReviewList review={review} />)}
+      {/* {reviews.results.map((review) => <ReviewList reveiw={review} />)} */}
+      <Button onClick={() => incrementByTwo()}> More Reviews </Button>
+    </>
+>>>>>>> 0ac910e (bundle fetching review data and loading)
   );
 }
 
