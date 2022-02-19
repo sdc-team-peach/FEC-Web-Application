@@ -7,7 +7,7 @@ function SizesDropdownMenu({ sizes }) {
   const [isActive, setIsActive] = useState(false);
   const [currentSize, setCurrentSize] = useState('Select Size');
   const onClick = () => setIsActive(!isActive);
-  const listSizes = Object.keys(sizes).map((key) => <li key={key}><button className="menu-trigger" onClick={ () => setCurrentSize(sizes[key].size)}>{sizes[key].size}</button></li>);
+  const listSizes = Object.keys(sizes).map((key) => <li key={key}><div onClick={ () => setCurrentSize(sizes[key].size)}>{sizes[key].size}</div></li>);
   useEffect(() => {
     const pageClickEvent = (e) => {
       console.log(e);

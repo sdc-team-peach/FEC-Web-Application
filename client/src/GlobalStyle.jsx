@@ -97,11 +97,15 @@ body{
     border-bottom: 1px solid #dddddd;
   }
 
-  .menu li a {
+  .menu li div {
     text-decoration: none;
     color: #333333;
     padding: 15px 20px;
     display: block;
+  }
+
+  .menu:hover {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
 `;
 
