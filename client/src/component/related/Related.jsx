@@ -20,7 +20,7 @@ function Related() {
     const res2 = await axios.get('/products/related', {
       params: { id: myContext.productId },
     });
-    console.log(res1.data, res2.data);
+    console.log('tyles:', res1.data, 'info:', res2.data);
     const result = res1.data.map((style) => {
       for (const item of res2.data) {
         // console.log(item.id)
@@ -40,8 +40,6 @@ function Related() {
   useEffect(() => {
     fetchingRelated();
   }, []);
-
-  console.log(relatedProducts);
 
   // const relatedProducts = dataFetcher.relatedFetcher(myContext.productId);
   // console.log(relatedProducts);

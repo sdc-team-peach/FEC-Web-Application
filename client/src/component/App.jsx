@@ -4,22 +4,25 @@ import Reviews from './reviews/Reviews';
 import Related from './related/Related';
 import Overview from './overview/Overview';
 import AppContext from './AppContext';
-import { ComparisonModal } from './related/ComparisonModal';
+import { Modal } from './related/Modal';
 
 
 function App() {
   const [globalProductId, setGlobalProductId] = useState(40344);
   const [globalProductInfo, setGlobalProductInfo] = useState();
+  const [globalProductStyle, setGlobalProductStyle] = useState();
   const [globalTheRelatedInfo, setGlobalTheRelatedInfo] = useState('hello');
   const [modalClicked, setModalClicked] = useState(false);
 
   const productIdSetting = {
     productId: globalProductId,
     productInfo: globalProductInfo,
+    productStyle: globalProductStyle,
     theRelatedInfo: globalTheRelatedInfo,
     modalStatus: modalClicked,
     setGlobalProductInfo,
     setGlobalProductId,
+    setGlobalProductStyle,
     setGlobalTheRelatedInfo,
     setModalClicked,
   };
@@ -30,7 +33,11 @@ function App() {
         <Overview />
         <Related />
         <Reviews />
-        {modalClicked && <ComparisonModal />}
+        {modalClicked && <Modal
+        imgUrl2={globalTheRelatedInfo.results[3].photos[0].url}
+        currentProduct={globalProductInfo}
+        comparedProduct={globalTheRelatedInfo}
+        />}
       </AppContext.Provider>
     </div>
   );
