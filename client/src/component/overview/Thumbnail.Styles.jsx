@@ -18,8 +18,12 @@ export const ThumbnailImage = styled.div`
   display: inline-block;
   position: relative;
   left: 13px;
+  &:hover {
+    border: 5px solid black;
+  }
 `;
 
 export const Text = styled.div`
-  display: inline-flex;
+  display: flex;
+
 `;

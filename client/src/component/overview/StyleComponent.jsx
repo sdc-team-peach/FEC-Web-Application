@@ -27,15 +27,13 @@ function StyleComponent() {
   return (
     <div>
       {currentStyle && <p>{currentStyle.original_price}</p>}
-
-      <h2>Colors</h2>
+      {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
       <Picture>
       {!loading && allProductStyles.map((style) => <Styles key={style.style_id} style={style} />)}
       </Picture>
 
       {/* {currentStyle && Object.keys(currentStyle.skus).map((key) => <Sizes key={key} sizes={currentStyle.skus[key].size} inventory={currentStyle.skus[key].quantity} />)} */}
 
-      {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
     </div>
   );
 }
