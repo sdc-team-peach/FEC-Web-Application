@@ -5,6 +5,8 @@ import { Button } from '../../GlobalStyle';
 import reviewFetcher from './reviewFetcher';
 import Breakdown from './breakdown/Breakdown';
 import ReviewList from './ReviewList';
+import GlobalStyles from './GlobalStyle';
+import AddModal from './modal/AddModal';
 import {
   SelectContainer, ReviewTitle, ReviewListContainer, RatingBreakdownContainer, Container,
 } from './Review.styles';
@@ -16,6 +18,7 @@ function Reviews() {
   // state for all updating page number when more button is clicked
   const [page, setPage] = useState(1);
   const [sortby, setSortby] = useState('newest');
+  const [openModal, setOpenModal] = useState(false);
   // fetching data function
   const { reviews, loading } = reviewFetcher(page, sortby, 2);
 
@@ -44,6 +47,10 @@ function Reviews() {
   function switchSort(e) {
     setSortby(e.value);
     setReviewAll([]);
+  }
+
+  function handleAddReview() {
+    setOpenModal(true);
   }
 
   console.log(reviewAll);
@@ -76,7 +83,7 @@ function Reviews() {
         {loading && <h1>loading...</h1>}
         {!loading && reviewAll.map((review) => <ReviewList review={review} />)}
         <Button onClick={() => incrementByTwo()}> More Reviews </Button>
-        <Button> Add a Review </Button>
+        <Button onClick={() => handleAddReview()}> Add a Review </Button>
       </ReviewListContainer>
 <<<<<<< HEAD
     </>

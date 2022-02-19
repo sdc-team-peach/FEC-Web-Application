@@ -4,8 +4,12 @@ import Reviews from './reviews/Reviews';
 import Related from './related/Related';
 import Overview from './overview/Overview';
 import AppContext from './AppContext';
+<<<<<<< HEAD
 import { Modal } from './related/Modal';
 
+=======
+import AddModal from './reviews/modal/AddModal';
+>>>>>>> 8221b02 (modal in process)
 
 function App() {
   const [globalProductId, setGlobalProductId] = useState(40344);
@@ -17,7 +21,11 @@ function App() {
 =======
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
   const [globalAverage, setGlobalState] = useState(0);
+<<<<<<< HEAD
 >>>>>>> d67c599 (rating star is now available to use in every widget)
+=======
+  const [addReviewModal, setAddreviewModal] = useState(false);
+>>>>>>> 8221b02 (modal in process)
 
   const productIdSetting = {
     productId: globalProductId,
@@ -55,6 +63,7 @@ function App() {
 
   return (
     <AppContext.Provider value={productIdSetting}>
+      {addReviewModal && <AddModal />}
       <Overview />
       <Related />
       <Reviews />
