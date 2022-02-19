@@ -32,6 +32,7 @@ body{
 .menu-container {
     position: relative;
     display: flex;
+    float: left;
     justify-content: center;
     align-items: center;
   }

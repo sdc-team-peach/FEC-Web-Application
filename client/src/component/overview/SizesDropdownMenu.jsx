@@ -1,16 +1,31 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 // import './styles.css';
 import GlobalStyles from '../../GlobalStyle';
 
 function SizesDropdownMenu({ sizes }) {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
+  const [currentSize, setCurrentSize] = useState('Select Size');
   const onClick = () => setIsActive(!isActive);
-  const listSizes = Object.keys(sizes).map((key) => <li key={key}><a href={`/${sizes[key].size}`}>{sizes[key].size}</a></li>);
+  const listSizes = Object.keys(sizes).map((key) => <li key={key}><button className="menu-trigger" onClick={ () => setCurrentSize(sizes[key].size)}>{sizes[key].size}</button></li>);
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      console.log(e);
+      if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
+        setIsActive(!isActive);
+      }
+    };
+    if (isActive) {
+      window.addEventListener('click', pageClickEvent);
+    }
+    return () => {
+      window.removeEventListener('click', pageClickEvent);
+    };
+  }, [isActive]);
   return (
     <div className="menu-container">
       <button onClick={onClick} className="menu-trigger">
-        <span>Sizes</span>
+        <span>{currentSize}</span>
       </button>
       <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
         <ul>
