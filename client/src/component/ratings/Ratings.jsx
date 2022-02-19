@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Container, Radio, Rating } from './Ratings.styles';
 
+// eslint-disable-next-line react/prop-types
 function StarRatings({ currentRate, isRating }) {
   const [rate, setRate] = useState(0);
   return (
