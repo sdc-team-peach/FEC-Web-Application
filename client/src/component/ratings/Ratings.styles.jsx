@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
    display: flex;
+   width: 85px;
+   height: 20px;
    justify-content: center;
-   align-items: center;
-   min-height: 10px;
-   font-size: 10px;
+   align-items: left;
+   min-height: 5px;
+   font-size: 15px;
 `;
 export const Radio = styled.input`
    display: none;

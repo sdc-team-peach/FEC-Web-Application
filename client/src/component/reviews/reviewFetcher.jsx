@@ -42,7 +42,8 @@ function reducer(state, action) {
     case ACTION.MAKE_REQUEST:
       return { reviews: [], loading: true };
     case ACTION.GET_DATA:
-      return { ...state, reviews: [...state.reviews, action.payload.reviews], loading: false };
+      // eslint-disable-next-line max-len
+      return { ...state, reviews: action.payload.reviews.results, loading: false };
     case ACTION.ERROR:
       return {
         ...state, reviews: [], loading: false, err: action.payload.err,
