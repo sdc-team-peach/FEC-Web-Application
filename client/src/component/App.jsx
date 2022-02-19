@@ -5,11 +5,15 @@ import Related from './related/Related';
 import Overview from './overview/Overview';
 import AppContext from './AppContext';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Modal } from './related/Modal';
 
 =======
 import AddModal from './reviews/modal/AddModal';
 >>>>>>> 8221b02 (modal in process)
+=======
+import Modal from './modal/Modal';
+>>>>>>> 979eb96 (modal is in process)
 
 function App() {
   const [globalProductId, setGlobalProductId] = useState(40344);
@@ -22,10 +26,15 @@ function App() {
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
   const [globalAverage, setGlobalState] = useState(0);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d67c599 (rating star is now available to use in every widget)
 =======
   const [addReviewModal, setAddreviewModal] = useState(false);
 >>>>>>> 8221b02 (modal in process)
+=======
+  const [modalReviewclicked, setModalReviewClicked] = useState(true);
+  const [modalCompareclicked, setModalCompareClicked] = useState(false);
+>>>>>>> 979eb96 (modal is in process)
 
   const productIdSetting = {
     productId: globalProductId,
@@ -56,14 +65,19 @@ function App() {
     </div>
 =======
     average: globalAverage,
+    addReviewClicked: modalCompareclicked,
+    relatedCompareClicked: modalCompareclicked,
     setGlobalProductInfo,
     setGlobalProductId,
     setGlobalState,
+    setModalReviewClicked,
+    setModalCompareClicked,
   };
 
   return (
     <AppContext.Provider value={productIdSetting}>
-      {addReviewModal && <AddModal />}
+      {modalReviewclicked && <Modal addReview />}
+      {modalCompareclicked && <Modal compare />}
       <Overview />
       <Related />
       <Reviews />

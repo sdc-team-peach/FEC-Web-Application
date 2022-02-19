@@ -5,20 +5,18 @@ import { Button } from '../../GlobalStyle';
 import reviewFetcher from './reviewFetcher';
 import Breakdown from './breakdown/Breakdown';
 import ReviewList from './ReviewList';
-import GlobalStyles from './GlobalStyle';
-import AddModal from './modal/AddModal';
 import {
   SelectContainer, ReviewTitle, ReviewListContainer, RatingBreakdownContainer, Container,
 } from './Review.styles';
 
 function Reviews() {
-  const { productId } = useContext(AppContext);
+  const { productId, setModalReviewClicked } = useContext(AppContext);
   // state for all fetched reviews data
   const [reviewAll, setReviewAll] = useState([]);
   // state for all updating page number when more button is clicked
   const [page, setPage] = useState(1);
   const [sortby, setSortby] = useState('newest');
-  const [openModal, setOpenModal] = useState(false);
+
   // fetching data function
   const { reviews, loading } = reviewFetcher(page, sortby, 2);
 
@@ -50,8 +48,13 @@ function Reviews() {
   }
 
   function handleAddReview() {
-    setOpenModal(true);
+    setModalReviewClicked((initial) => !initial);
   }
+
+  const customStyles = {
+    menuPortal: (provided) => ({ ...provided, zIndex: 0 }),
+    menu: (provided) => ({ ...provided, zIndex: 0 }),
+  };
 
   console.log(reviewAll);
   return (
@@ -77,7 +80,13 @@ function Reviews() {
         <ReviewTitle>
           Reviews sorted by
         </ReviewTitle>
-        <Select options={options} onChange={(e) => switchSort(e)} />
+        <Select
+          styles={customStyles}
+          menuPortalTarget={document.body}
+          menuPosition="fixed"
+          options={options}
+          onChange={(e) => switchSort(e)}
+        />
       </SelectContainer>
       <ReviewListContainer>
         {loading && <h1>loading...</h1>}

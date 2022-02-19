@@ -10,7 +10,6 @@ height: 50px;
 width: 100%;
 margin: 20px 0px;
 padding: 15px;
-position: relative;
 display: flex;
 flex-direction: column;
 justify-content: center;

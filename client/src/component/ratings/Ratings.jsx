@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 import { Container, Radio, Rating } from './Ratings.styles';
 
 // eslint-disable-next-line react/prop-types
-function StarRatings({ currentRating, currentId, isRating }) {
+function StarRatings({ currentRating, currentId, isRating, addRating }) {
   const [rate, setRate] = useState(0);
   // const { metaData } = reviewMetaFetcher(currentId);
   const [ratingData, setRatingData] = useState(null);
@@ -59,6 +59,7 @@ function StarRatings({ currentRating, currentId, isRating }) {
                 value={givenRating}
                 onClick={() => {
                   setRate(givenRating);
+                  addRating(givenRating);
                 }}
               />
               <Rating>
