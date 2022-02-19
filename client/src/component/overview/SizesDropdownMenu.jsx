@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
+// import './styles.css';
+import GlobalStyles from '../../GlobalStyle';
 
 function SizesDropdownMenu({ sizes }) {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
-  const listSizes = Object.keys(sizes).map((key) => <li key={key}>{sizes[key].size}</li>);
+  const listSizes = Object.keys(sizes).map((key) => <li key={key}><a href={`/${sizes[key].size}`}>{sizes[key].size}</a></li>);
   return (
     <div className="menu-container">
       <button onClick={onClick} className="menu-trigger">
@@ -20,9 +22,3 @@ function SizesDropdownMenu({ sizes }) {
 }
 
 export default SizesDropdownMenu;
-
-{/* <li key={key}>
-<a href={`/${sizes[key].size}`}>
-{sizes[key].size}
-</a>
-</li> */}
