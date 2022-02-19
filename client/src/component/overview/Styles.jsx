@@ -2,7 +2,6 @@ import React from 'react';
 import { Picture, ThumbnailImage, Text } from './Thumbnail.Styles';
 
 export default function Styles({ style }) {
-  // console.log(style);
   return (
     <div>
 

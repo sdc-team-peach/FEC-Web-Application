@@ -45,7 +45,7 @@ function Carousel({ children, photo }) {
       <div
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)`}}>
-        {React.Children.map(children, (child, index) => <img src={child.key} alt="new" />) }
+        {React.Children.map(children, (child, index) => <img src={child.key} style={{width: '100%'}} />) }
       </div>
       <div className="indicators">
         <Button

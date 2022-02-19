@@ -56,7 +56,7 @@ function Reviews() {
     menu: (provided) => ({ ...provided, zIndex: 0 }),
   };
 
-  console.log(reviewAll);
+  // console.log(reviewAll);
   return (
     <Container>
       <RatingBreakdownContainer>
