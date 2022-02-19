@@ -58,21 +58,7 @@ function Reviews() {
 
   console.log(reviewAll);
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div>
-<<<<<<< HEAD
-      {/* {myContext.productId} */}
-=======
-      <StarRatings currentRate={4} isRating />
-      {reveiwData.product_id}
->>>>>>> 3eb8882 (bundle minor changes)
-    </div>
-=======
-    <>
-=======
     <Container>
->>>>>>> d67c599 (rating star is now available to use in every widget)
       <RatingBreakdownContainer>
         <Breakdown />
       </RatingBreakdownContainer>
@@ -94,12 +80,7 @@ function Reviews() {
         <Button onClick={() => incrementByTwo()}> More Reviews </Button>
         <Button onClick={() => handleAddReview()}> Add a Review </Button>
       </ReviewListContainer>
-<<<<<<< HEAD
-    </>
->>>>>>> 0ac910e (bundle fetching review data and loading)
-=======
     </Container>
->>>>>>> d67c599 (rating star is now available to use in every widget)
   );
 }
 
