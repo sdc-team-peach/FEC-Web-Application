@@ -14,6 +14,7 @@ function App() {
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
   const [globalAverage, setGlobalState] = useState(0);
   const [currentSize, setCurrentSize] = useState(0);
+  const [currentQuantity, setCurrentQuantity] = useState(0);
 
   const productIdSetting = {
     productId: globalProductId,
@@ -22,12 +23,14 @@ function App() {
     theRelatedInfo: globalTheRelatedInfo,
     modalStatus: modalClicked,
     currentSize: currentSize,
+    currentQuantity: currentQuantity,
     setGlobalProductInfo,
     setGlobalProductId,
     setGlobalProductStyle,
     setGlobalTheRelatedInfo,
     setModalClicked,
     setCurrentSize,
+    setCurrentQuantity,
   };
 
   return (

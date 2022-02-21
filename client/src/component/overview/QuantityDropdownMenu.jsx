@@ -20,7 +20,7 @@ function QuantityDropdownMenu({ quantity }) {
     }
     setInventory(tempInv);
   });
-  const listSizes = inventory.map((currentNum) => <li key={currentNum}><div onClick={ function() {setCurrentQuantity(currentNum)}}>{currentNum}</div></li>)
+  const listSizes = inventory.map((currentNum) => <li key={currentNum}><div onClick={ function() {setCurrentQuantity(currentNum); myContext.setCurrentQuantity(currentNum)}}>{currentNum}</div></li>)
 
   useEffect(() => {
     arrayCreator();
