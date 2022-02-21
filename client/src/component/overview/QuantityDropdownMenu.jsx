@@ -1,12 +1,30 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import AppContext from '../AppContext';
 import GlobalStyles, { Button } from '../../GlobalStyle';
 
 function QuantityDropdownMenu({ quantity }) {
+  const myContext = useContext(AppContext);
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const [currentQuantity, setCurrentQuantity] = useState('Select Quantity');
+  const [inventory, setInventory] = useState([0]);
   const onClick = () => setIsActive(!isActive);
-  const listQuantity = Object.keys(quantity).map((key) => <li key={key}><div onClick={ () => setCurrentQuantity(quantity[key].quantity)}>{quantity[key].quantity}</div></li>);
+  const arrayCreator = (() => {
+    var tempInv = []
+    for (let i = 0; i < myContext.currentSize.quantity; i +=1 ) {
+      if (tempInv.length === 16) {
+        setInventory(tempInv);
+        return;
+      }
+      tempInv.push(i);
+    }
+    setInventory(tempInv);
+  });
+  const listSizes = inventory.map((currentNum) => <li key={currentNum}><div onClick={ function() {setCurrentQuantity(currentNum)}}>{currentNum}</div></li>)
+
+  useEffect(() => {
+    arrayCreator();
+  }, [myContext.currentSize]);
   useEffect(() => {
     const pageClickEvent = (e) => {
       console.log(e);
@@ -28,7 +46,7 @@ function QuantityDropdownMenu({ quantity }) {
       </Button>
       <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
         <ul>
-          {listQuantity}
+          <li><div>{listSizes}</div></li>
         </ul>
       </nav>
     </div>

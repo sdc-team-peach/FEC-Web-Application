@@ -13,7 +13,7 @@ function App() {
   const [modalClicked, setModalClicked] = useState(false);
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
   const [globalAverage, setGlobalState] = useState(0);
-  const [currentSize, setCurrentSize] = useState();
+  const [currentSize, setCurrentSize] = useState(0);
 
   const productIdSetting = {
     productId: globalProductId,
