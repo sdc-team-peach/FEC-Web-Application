@@ -1,13 +1,15 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import AppContext from '../AppContext';
 // import './styles.css';
 import GlobalStyles, { Button } from '../../GlobalStyle';
 
 function SizesDropdownMenu({ sizes }) {
+  const myContext = useContext(AppContext);
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const [currentSize, setCurrentSize] = useState('Select Size');
   const onClick = () => setIsActive(!isActive);
-  const listSizes = Object.keys(sizes).map((key) => <li key={key}><div onClick={ () => setCurrentSize(sizes[key].size)}>{sizes[key].size}</div></li>);
+  const listSizes = Object.keys(sizes).map((key) => <li key={key}><div onClick={ function() {setCurrentSize(sizes[key].size); myContext.setCurrentSize(sizes[key].size);}}>{sizes[key].size}</div></li>);
   useEffect(() => {
     const pageClickEvent = (e) => {
       console.log(e);
