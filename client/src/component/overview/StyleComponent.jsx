@@ -32,13 +32,9 @@ function StyleComponent() {
 
   return (
     <div>
-      <div>
-
       {currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> {currentStyle.original_price} </TextSalesPriceOriginal>}
       {currentStyle && currentStyle.sale_price && <TextSalesPrice> {currentStyle.sale_price} </TextSalesPrice>}
       {currentStyle && !currentStyle.sale_price && <TextPrice> {currentStyle.original_price} </TextPrice>}
-      </div>
-
       {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
       {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
       {currentStyle && <AddToCartButton />}

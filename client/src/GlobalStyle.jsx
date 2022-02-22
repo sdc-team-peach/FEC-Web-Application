@@ -37,7 +37,7 @@ body{
     align-items: center;
     z-index: 9999;
     flex: 0;
-    margin-top:15px;
+    margin-top:30px;
   }
 
   .menu-trigger {
@@ -199,12 +199,11 @@ margin: 8px;
 
 export const TextPrice = styled.p`
   color: black;
-  font-size: 15px;
+  font-size: 30px;
   font-weight: 1000;
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-bottom: 25px;
 
 
 `;
@@ -212,23 +211,22 @@ export const TextPrice = styled.p`
 export const TextSalesPriceOriginal = styled.p`
   color: black;
   text-decoration: line-through;
-  font-size: 15px;
+  font-size: 30px;
   font-weight: 1000;
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-bottom: 25px;
 
 `;
 
 export const TextSalesPrice = styled.span`
   color: red;
-  font-size: 15px;
+  font-size: 30px;
   font-weight: 1000;
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-bottom: 25px;
+  margin-left: 100px;
 
 `;
 
