@@ -18,12 +18,17 @@ function StyleComponent() {
   const [allProductStyles, setAllProductStyles] = useState([]);
   const { styles, loading } = StyleFetcher();
   const [currentStyle, setCurrentStyle] = useState(null);
+
   useEffect(() => {
     setAllProductStyles([...allProductStyles, ...styles]);
     setCurrentStyle(styles[0]);
     myContext.setGlobalProductStyle(styles[0]);
   }, [styles]);
-  console.log(currentStyle);
+
+  useEffect(() => {
+    setCurrentStyle(myContext.productStyle);
+  }, [myContext.productStyle]);
+
   return (
     <div>
       {currentStyle && <p>{currentStyle.original_price}</p>}
@@ -31,7 +36,12 @@ function StyleComponent() {
       {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
       {currentStyle && <AddToCartButton />}
       <Picture>
-      {!loading && allProductStyles.map((style) => <Styles key={style.style_id} style={style} />)}
+        {!loading && allProductStyles.map((style, index) =>
+       <Styles
+         key={index}
+         style={style}
+         styles={styles}
+       />)}
       </Picture>
     </div>
   );

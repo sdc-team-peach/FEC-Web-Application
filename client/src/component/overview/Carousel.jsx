@@ -10,7 +10,6 @@ export function CarouselItem ({ children, width }) {
 }
 
 function Carousel({ children, photo }) {
-  console.log(children);
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 

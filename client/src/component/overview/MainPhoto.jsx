@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import StyleFetcher from './styleFetcher';
 import Carousel, { CarouselItem } from './Carousel';
 import CarouselRender from './CarouselRender';
+import AppContext from '../AppContext';
 
 function MainPhoto() {
+  const myContext = useContext(AppContext);
   const { styles, loading } = StyleFetcher();
   const [currentStyle, setCurrentStyle] = useState(null);
   useEffect(() => {
     setCurrentStyle(styles[0]);
   }, [styles]);
+
+  useEffect(() => {
+    setCurrentStyle(myContext.productStyle);
+  }, [myContext.productStyle]);
+
   return (
     // <Carousel>
     //   {currentStyle && currentStyle.photos.map((photo) => <CarouselItem key={photo.thumbnail_url}>{photo.thumbnail_url}</CarouselItem>) }
