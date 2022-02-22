@@ -19,7 +19,7 @@ export const ThumbnailImage = styled.div`
   position: relative;
   left: 13px;
   &:hover {
-    border: 5px solid black;
+    border: 5px solid green;
   }
 `;
 

@@ -1,11 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ProductInfoFetcher from './ProductInfoFetcher';
 import StarRatings from '../ratings/Ratings';
 import AppContext from '../AppContext';
 
 function ProductComponent() {
-  const { productInfo, loading } = ProductInfoFetcher();
   const myContext = useContext(AppContext);
+  const { productInfo, loading } = ProductInfoFetcher();
+  // const [currentInfo, setCurrentInfo] = useState(null);
+  // const [currentStyle, setCurrentStyle] = useState(null);
+
+  // useEffect(() => {
+  //   setCurrentInfo(myContext.productInfo);
+  //   setCurrentStyle(myContext.productStyle);
+  // });
+
   return (
     <div>
       {!loading && <h1>{productInfo.name}</h1>}

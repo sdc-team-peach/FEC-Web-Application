@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { TextSalesPriceOriginal, TextSalesPrice, TextPrice } from '../../GlobalStyle';
 import StyleFetcher from './StyleFetcher';
 import Styles from './Styles';
 import Sizes from './Sizes';
@@ -31,10 +32,17 @@ function StyleComponent() {
 
   return (
     <div>
-      {currentStyle && <p>{currentStyle.original_price}</p>}
+      <div>
+
+      {currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> {currentStyle.original_price} </TextSalesPriceOriginal>}
+      {currentStyle && currentStyle.sale_price && <TextSalesPrice> {currentStyle.sale_price} </TextSalesPrice>}
+      {currentStyle && !currentStyle.sale_price && <TextPrice> {currentStyle.original_price} </TextPrice>}
+      </div>
+
       {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
       {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
       {currentStyle && <AddToCartButton />}
+      {/* {currentStyle && <p>{currentStyle.original_price}</p>} */}
       <Picture>
         {!loading && allProductStyles.map((style, index) =>
        <Styles

@@ -17,9 +17,6 @@ function MainPhoto() {
   }, [myContext.productStyle]);
 
   return (
-    // <Carousel>
-    //   {currentStyle && currentStyle.photos.map((photo) => <CarouselItem key={photo.thumbnail_url}>{photo.thumbnail_url}</CarouselItem>) }
-    // </Carousel>
     <Carousel>
       {currentStyle && currentStyle.photos.map((photo) => <CarouselRender key={photo.thumbnail_url} photo={photo.thumbnail_url} />) }
     </Carousel>
