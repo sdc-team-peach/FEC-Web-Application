@@ -15,12 +15,21 @@ import {
 
 } from './CardStyle';
 
+
+
 export function Card({
   title, imgUrl, price, body, salesPrice, handleModalOnclick,
 }) {
+  let img = '';
+  if (imgUrl == null) {
+    img = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png';
+  } else {
+    img = imgUrl;
+  }
+  // const img = imgUrl || './Image-Not-Available.png';
   return (
     <CardWrapper>
-      <CardImage background={imgUrl} />
+      <CardImage background={img} />
       <AiFillStar
         onClick={handleModalOnclick}
         style={{
@@ -29,7 +38,7 @@ export function Card({
           left: '220px',
         }}
         size="20px"
-        color="white"
+        color="rgb(245,245,245)"
       />
       {/* <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon> */}
       <CardTextWrapper>
