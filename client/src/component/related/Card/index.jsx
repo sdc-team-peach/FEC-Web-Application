@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { AiFillStar } from 'react-icons/ai';
 import {
   CardWrapper,
   CardImage,
@@ -20,7 +21,17 @@ export function Card({
   return (
     <CardWrapper>
       <CardImage background={imgUrl} />
-      <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon>
+      <AiFillStar
+        onClick={handleModalOnclick}
+        style={{
+          position: 'fixed',
+          top: '10px',
+          left: '220px',
+        }}
+        size="20px"
+        color="white"
+      />
+      {/* <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon> */}
       <CardTextWrapper>
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>

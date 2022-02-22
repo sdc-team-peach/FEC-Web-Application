@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
-import '../../../dist/style.css';
+// import '../../../dist/style.css';
 import styled from 'styled-components';
+import { IoIosRemoveCircle } from 'react-icons/io';
 import {
   CardWrapper,
   CardImage,
@@ -14,13 +15,23 @@ import {
 
 } from '../Card/CardStyle';
 
+// need to work on removing thing that gets clicked from the state as well localstorage
 function Card({
   title, imgUrl, price, body, salesPrice, handleRemove,
 }) {
   return (
     <CardWrapper>
       <CardImage background={imgUrl} />
-      <ModalIcon>-</ModalIcon>
+      <IoIosRemoveCircle
+        onClick={handleRemove}
+        style={{
+          position: 'fixed',
+          top: '10px',
+          left: '220px',
+        }}
+        size="20px"
+        color="white"
+      />
       <CardTextWrapper>
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>
@@ -30,9 +41,20 @@ function Card({
       </CardTextWrapper>
     </CardWrapper>
   );
-};
+}
 
-function MyOutfitCard({ myOutfitProduct }) {
+function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
+  console.log('before', myOutfits);
+  const handleRemove = () => {
+    const { id } = myOutfitProduct.info;
+    localStorage.removeItem(id);
+    const remove = myOutfits.filter((outfit) => {
+      console.log('testhbj', outfit);
+      return outfit.info.id !== id;
+    });
+    console.log('lastcheck', remove);
+    setMyOutfit(remove);
+  };
   return (
     <div>
       <span>
@@ -42,6 +64,7 @@ function MyOutfitCard({ myOutfitProduct }) {
           body={myOutfitProduct.info.category}
           price={`$${myOutfitProduct.style.original_price}`}
           salesPrice={myOutfitProduct.style.sale_price}
+          handleRemove={handleRemove}
           // handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); console.log(myContext.modalStatus); }}
         />
         {/* <div>

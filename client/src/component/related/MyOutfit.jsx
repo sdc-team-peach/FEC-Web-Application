@@ -5,18 +5,22 @@ import styled from 'styled-components';
 import dataFetcher from '../../dataFetcher';
 import AppContext from '../AppContext';
 import { MyOutfitActionCard } from './MyOutfitCard';
+import MyOutfitCard from './MyOutfitCard/MyOutfitCard';
 
 function MyOutfit() {
   const [myOutfits, setMyOutfits] = useState(() => {
-    var values = [];
-    var keys = Object.keys(localStorage);
-    var i = keys.length;
+    const values = [];
+    const keys = Object.keys(localStorage);
+    let i = keys.length;
     while (i--) {
       values.push(JSON.parse(localStorage.getItem(keys[i])));
     }
+    // for (var key in localStorage) {
+    //   values[key] = JSON.parse(localStorage.getItem(key));
+    // }
     return values;
   });
-  console.log('myoutfits', myOutfits);
+  console.log('myoutfitshere', myOutfits);
   return (
     <div>
       {/* <h2>
@@ -24,7 +28,7 @@ function MyOutfit() {
       </h2> */}
       <Carousel
         slidesToShow={4}
-        infinite
+        // infinite
         center={false}
         centerPadding={30}
         // breakpoints={[
@@ -70,14 +74,16 @@ function MyOutfit() {
         {/* first is the action Card
 
         then map thru localstorage */}
-        <MyOutfitActionCard setMyOutfitState={setMyOutfits} myOutfits={myOutfits} />
-        <div>hello</div>
-        <div>2</div>
-        <div>3</div>
+        <MyOutfitActionCard setMyOutfit={setMyOutfits} myOutfits={myOutfits} />
 
-        {/* {relatedProducts.map(
-          (relatedProduct) => <RelatedProductCard relatedProduct={relatedProduct} />,
-        )} */}
+        {myOutfits.map(
+          (myOutfit) => <MyOutfitCard
+          myOutfitProduct={myOutfit}
+          setMyOutfit={setMyOutfits}
+          myOutfits={myOutfits} />,
+        )}
+
+
 
       </Carousel>
       {/* {relatedProducts.map(
