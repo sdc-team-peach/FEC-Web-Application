@@ -26,7 +26,8 @@ export const ModalWrapper = styled.div`
     "leftpic break rightpic"
     "leftpic righttext rightpic";
   /* padding: 10px; */
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.4)
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+  z-index: 9995;
 `;
 
 export const LeftPic = styled.div`

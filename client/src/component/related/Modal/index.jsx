@@ -1,10 +1,12 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useContext } from 'react';
 import { ImCancelCircle } from 'react-icons/im';
+import styled from 'styled-components';
 import {
   ModalWrapper, LeftPic, RightPic, Title, LeftDescription, LeftTitle, RightTitle, LeftFeatures, RightFeatures, RightDescription,
 } from './ModalStyle';
 import AppContext from '../../AppContext';
+
 
 export function Modal({
   imgUrl1, imgUrl2, currentProduct, comparedProduct,
@@ -14,6 +16,17 @@ export function Modal({
   const handleClose = () => {
     myContext.setModalClicked(false);
   };
+
+  const DarkBG = styled.div`
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    z-index: 9994;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    `;
 
   return (
     <div>
@@ -25,11 +38,11 @@ export function Modal({
             right: '10px',
           }}
           size="20px"
-          color="white"
+          color="rgb(245,245,245)"
           onClick={handleClose}
           // onClick={myContext.setModalClicked(false)}
         />
-        <LeftPic background={imgUrl1} />
+        <LeftPic background={imgUrl1 || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'} />
         <Title>Comparing</Title>
         <LeftDescription>
           <LeftTitle>
@@ -64,8 +77,9 @@ export function Modal({
           </RightFeatures>
         </RightDescription>
         {/* <RightArrow /> */}
-        <RightPic background={imgUrl2} />
+        <RightPic background={imgUrl2 || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'} />
       </ModalWrapper>
+      <DarkBG />
 
     </div>
   );

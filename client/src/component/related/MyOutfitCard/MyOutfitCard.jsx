@@ -14,10 +14,11 @@ import {
   CardTextSalesPrice,
 
 } from '../Card/CardStyle';
+import StarRatings from '../../ratings/Ratings';
 
 // need to work on removing thing that gets clicked from the state as well localstorage
 function Card({
-  title, imgUrl, price, body, salesPrice, handleRemove,
+  title, imgUrl, price, body, salesPrice, handleRemove, id
 }) {
   return (
     <CardWrapper>
@@ -30,9 +31,10 @@ function Card({
           left: '220px',
         }}
         size="20px"
-        color="white"
+        color="rgb(245,245,245)"
       />
       <CardTextWrapper>
+        <StarRatings currentId={id} color='yellow' />
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>
         {salesPrice && <CardTextSalesPriceOriginal>{price}</CardTextSalesPriceOriginal>}
@@ -49,10 +51,10 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
     const { id } = myOutfitProduct.info;
     localStorage.removeItem(id);
     const remove = myOutfits.filter((outfit) => {
-      console.log('testhbj', outfit);
+      // console.log('testhbj', outfit);
       return outfit.info.id !== id;
     });
-    console.log('lastcheck', remove);
+    // console.log('lastcheck', remove);
     setMyOutfit(remove);
   };
   return (
@@ -65,6 +67,7 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
           price={`$${myOutfitProduct.style.original_price}`}
           salesPrice={myOutfitProduct.style.sale_price}
           handleRemove={handleRemove}
+          id={myOutfitProduct.info.id}
           // handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); console.log(myContext.modalStatus); }}
         />
         {/* <div>
