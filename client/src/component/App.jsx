@@ -43,44 +43,31 @@ function App() {
   const [modalClicked, setModalClicked] = useState(false);
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
   const [globalAverage, setGlobalAverage] = useState(0);
+  const [currentSize, setCurrentSize] = useState(0);
+  const [currentQuantity, setCurrentQuantity] = useState(0);
   const [modalReviewClicked, setModalReviewClicked] = useState(false);
   const [metaCharacteristics, setMetaCharacteristics] = useState(null);
   const [reviewSubmitted, setReviewSubmitted] = useState(false);
   const [photoModal, setPhotoModal] = useState(false);
   const [reviewPhotos, setReviewPhotos] = useState([]);
 
-<<<<<<< HEAD
-  const productIdSetting = {
-    productId: globalProductId,
-    productInfo: globalProductInfo,
-    productStyle: globalProductStyle,
-    theRelatedInfo: globalTheRelatedInfo,
-    modalStatus: modalClicked,
-    currentSize: currentSize,
-    currentQuantity: currentQuantity,
-    modalReviewClicked,
-    globalAverage,
-    metaCharacteristics,
-    setGlobalProductInfo,
-    setGlobalProductId,
-    setGlobalProductStyle,
-    setGlobalTheRelatedInfo,
-    setModalClicked,
-    setCurrentSize,
-    setCurrentQuantity,
-    setModalReviewClicked,
-    setGlobalAverage,
-    setMetaCharacteristics,
-  };
+  // const productIdSetting = {
+  //   productId: globalProductId,
+  //   productInfo: globalProductInfo,
+  //   productStyle: globalProductStyle,
+  //   theRelatedInfo: globalTheRelatedInfo,
+  //   modalStatus: modalClicked,
+  //   currentSize,
+  //   currentQuantity,
+  //   setGlobalProductInfo,
+  //   setGlobalProductId,
+  //   setGlobalProductStyle,
+  //   setGlobalTheRelatedInfo,
+  //   setModalClicked,
+  //   setCurrentSize,
+  //   setCurrentQuantity,
+  // };
 
-  return (
-    <div>
-      <AppContext.Provider value={productIdSetting}>
-      {modalReviewClicked && <ReviewModal />}
-        <Overview />
-        <Related />
-        <MyOutfit />
-=======
   const value = useMemo(() => (
     {
       productId: globalProductId,
@@ -88,6 +75,8 @@ function App() {
       productStyle: globalProductStyle,
       theRelatedInfo: globalTheRelatedInfo,
       modalStatus: modalClicked,
+      currentSize,
+      currentQuantity,
       modalReviewClicked,
       globalAverage,
       metaCharacteristics,
@@ -105,23 +94,21 @@ function App() {
       setReviewSubmitted,
       setPhotoModal,
       setReviewPhotos,
+      setCurrentSize,
+      setCurrentQuantity,
     }
   // eslint-disable-next-line max-len
-  ), [globalProductId, globalProductInfo, globalProductStyle, globalTheRelatedInfo, modalClicked, modalReviewClicked, globalAverage, metaCharacteristics, reviewSubmitted, photoModal, reviewPhotos]);
+  ), [globalProductId, globalProductInfo, globalProductStyle, globalTheRelatedInfo, modalClicked, modalReviewClicked, globalAverage, metaCharacteristics, reviewSubmitted, photoModal, reviewPhotos, currentSize,
+    currentQuantity]);
 
   return (
     <div>
       <AppContext.Provider value={value}>
         {modalReviewClicked && <ReviewModal />}
         {photoModal && <ReviewPhotoModal />}
-<<<<<<< HEAD
-        {/* <Overview />
-        <Related /> */}
->>>>>>> 56a8222 (photo review posting and modal completed)
-=======
         <Overview />
         <Related />
->>>>>>> b1dcda2 (review completed)
+        <MyOutfit />
         <Reviews />
         {modalClicked && (
         <Modal

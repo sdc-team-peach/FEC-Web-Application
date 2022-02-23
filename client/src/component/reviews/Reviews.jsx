@@ -59,10 +59,7 @@ function Reviews() {
     menu: (provided) => ({ ...provided, zIndex: 0 }),
   };
 
-<<<<<<< HEAD
   // console.log(reviewAll);
-=======
->>>>>>> 56a8222 (photo review posting and modal completed)
   return (
     <Container>
       <RatingBreakdownContainer>
