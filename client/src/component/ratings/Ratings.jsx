@@ -1,15 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useMemo, useEffect } from 'react';
 import axios from 'axios';
-import { FaStar } from 'react-icons/fa';
+import { MdStar } from 'react-icons/md';
 // import reviewMetaFetcher from '../reviews/breakdown/breakdownFetcher';
 import { Container, Radio, Rating } from './Ratings.styles';
 
 // eslint-disable-next-line react/prop-types
-function StarRatings({ currentRating, currentId, isRating, addRating }) {
+function StarRatings({
+  currentRating, currentId, isRating, addRating, color,
+}) {
   const [rate, setRate] = useState(0);
   // const { metaData } = reviewMetaFetcher(currentId);
   const [ratingData, setRatingData] = useState(null);
+  const starColor = color || '000';
 
   useEffect(() => {
     if (currentId) {
@@ -63,7 +66,7 @@ function StarRatings({ currentRating, currentId, isRating, addRating }) {
                 }}
               />
               <Rating>
-                <FaStar
+                <MdStar
                   color={
                 givenRating < rate || givenRating === rate
                   ? '000'
@@ -81,10 +84,10 @@ function StarRatings({ currentRating, currentId, isRating, addRating }) {
                 value={givenRating}
               />
               <Rating>
-                <FaStar
+                <MdStar
                   color={
                 givenRating < rating || givenRating === rating
-                  ? '000'
+                  ? starColor
                   : 'rgb(192,192,192)'
               }
                 />
@@ -99,7 +102,7 @@ function StarRatings({ currentRating, currentId, isRating, addRating }) {
                 value={givenRating}
               />
               <Rating>
-                <FaStar
+                <MdStar
                   color={
                 givenRating < currentRating || givenRating === currentRating
                   ? '000'

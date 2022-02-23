@@ -1,0 +1,50 @@
+/* eslint-disable import/prefer-default-export */
+// create the action card
+import React, { useContext, useState } from 'react';
+import styled from 'styled-components';
+import AppContext from '../../AppContext';
+
+const ActionCardWrapper = styled.div`
+  height: 400px;
+  width: 250px;
+  display: grid;
+  grid-template-columns: 250px;
+  grid-template-rows: 200px 200px;
+  grid-template-areas: "text" "icon";
+  /* border-radius: 18px; */
+  background: white;
+
+  text-align: center;
+`;
+
+const ActionCardText = styled.div`
+`;
+
+const ActionCardIcon = styled.a`
+`;
+
+// this is the first card in myoutfit list
+export function MyOutfitActionCard({
+  setMyOutfit, myOutfits
+}) {
+  const myContext = useContext(AppContext);
+  const id = myContext.productId;
+  const styleAndInfo = {
+    style: myContext.productStyle,
+    info: myContext.productInfo,
+  };
+
+  const saveToLocal = () => {
+    localStorage.setItem(id, JSON.stringify(styleAndInfo));
+    if (!myOutfits.some(outfit => outfit.info.id === id)) {
+      setMyOutfit([...myOutfits, styleAndInfo]);
+    }
+    // setMyOutfit([...myOutfits, styleAndInfo]);
+  };
+  return (
+    <ActionCardWrapper>
+      <ActionCardText>Click to add to my outfit</ActionCardText>
+      <ActionCardIcon onClick={saveToLocal}>+</ActionCardIcon>
+    </ActionCardWrapper>
+  );
+}

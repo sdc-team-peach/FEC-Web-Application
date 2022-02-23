@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { AiFillStar } from 'react-icons/ai';
 import {
   CardWrapper,
   CardImage,
@@ -13,15 +14,35 @@ import {
   CardTextSalesPrice,
 
 } from './CardStyle';
+import StarRatings from '../../ratings/Ratings';
 
 export function Card({
-  title, imgUrl, price, body, salesPrice, handleModalOnclick,
+  title, imgUrl, price, body, salesPrice, handleModalOnclick, id
 }) {
+  // let img = '';
+  // if (imgUrl == null) {
+  //   img = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png';
+  // } else {
+  //   img = imgUrl;
+  // }
+  // const img = imgUrl || './Image-Not-Available.png';
   return (
     <CardWrapper>
-      <CardImage background={imgUrl} />
-      <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon>
+      <CardImage background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'} />
+      <AiFillStar
+        onClick={handleModalOnclick}
+        style={{
+          position: 'fixed',
+          top: '10px',
+          left: '220px',
+        }}
+        size="20px"
+        color="rgb(245,245,245)"
+      />
+      {/* <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon> */}
       <CardTextWrapper>
+        <StarRatings
+        currentId={id} color='yellow'/>
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>
         {salesPrice && <CardTextSalesPriceOriginal>{price}</CardTextSalesPriceOriginal>}
