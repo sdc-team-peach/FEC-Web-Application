@@ -24,7 +24,7 @@ function RelatedProductCard({ relatedProduct }) {
           body={relatedProduct.category}
           price={`$${relatedProduct.results[3].original_price}`}
           salesPrice={relatedProduct.results[3].sale_price}
-          handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(!myContext.modalStatus); }}
+          handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); console.log(myContext.modalStatus); }}
         />
         {/* <div>
         {relatedProduct.results[0].photos[0].url}
