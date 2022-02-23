@@ -12,23 +12,25 @@ import {
 function Reviews() {
   const { productId, setModalReviewClicked } = useContext(AppContext);
   // state for all fetched reviews data
-  const [reviewAll, setReviewAll] = useState([]);
+  const [currentReviews, setCurrentReviews] = useState([]);
+  const [page, setPage] = useState(2);
   // state for all updating page number when more button is clicked
-  const [page, setPage] = useState(1);
   const [sortby, setSortby] = useState('newest');
 
   // fetching data function
-  const { reviews, loading } = reviewFetcher(page, sortby, 2);
-
+  const { reviews, loading } = reviewFetcher(sortby);
   // invoke when reviews variable chages
   // adding incoming data to reviewAll state
   useEffect(() => {
-    setReviewAll([...reviewAll, ...reviews]);
-  }, [reviews]);
+    if (reviews.length) {
+      const setReviews = reviews.slice(0, page);
+      setCurrentReviews(setReviews);
+    }
+  }, [reviews, page]);
 
   useEffect(() => () => {
-    setPage(1);
-    setReviewAll([]);
+    setPage(2);
+    setCurrentReviews([]);
   }, [productId]);
 
   const options = [
@@ -39,12 +41,13 @@ function Reviews() {
 
   // increment page number when button is clicked
   function incrementByTwo() {
-    setPage((initial) => initial + 1);
+    setPage((initial) => initial + 2);
   }
 
   function switchSort(e) {
+    console.log(e.value);
     setSortby(e.value);
-    setReviewAll([]);
+    setCurrentReviews([]);
   }
 
   function handleAddReview() {
@@ -76,7 +79,7 @@ function Reviews() {
       </SelectContainer>
       <ReviewListContainer>
         {loading && <h1>loading...</h1>}
-        {!loading && reviewAll.map((review) => <ReviewList review={review} />)}
+        {!loading && currentReviews.map((review) => <ReviewList review={review} />)}
         <Button onClick={() => incrementByTwo()}> More Reviews </Button>
         <Button onClick={() => handleAddReview()}> Add a Review </Button>
       </ReviewListContainer>

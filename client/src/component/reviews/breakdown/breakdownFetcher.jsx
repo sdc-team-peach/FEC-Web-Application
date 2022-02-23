@@ -25,7 +25,7 @@ function reducer(state, action) {
 }
 
 const reviewMetaFetcher = () => {
-  const { productId } = useContext(AppContext);
+  const { productId, setMetaCharacteristics } = useContext(AppContext);
   const request = productId;
   const [state, dispatch] = useReducer(reducer, { metaData: null, loading: true });
 
@@ -38,6 +38,7 @@ const reviewMetaFetcher = () => {
     })
       .then((res) => {
         dispatch({ type: ACTION.GET_DATA, payload: { metaData: res.data } });
+        setMetaCharacteristics(res.data.characteristics);
       })
       .catch((e) => {
         dispatch({ type: ACTION.ERROR, payload: { err: e } });

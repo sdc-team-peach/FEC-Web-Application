@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import StyleFetcher from './styleFetcher';
+import StyleFetcher from './StyleFetcher';
 import Carousel, { CarouselItem } from './Carousel';
 import CarouselRender from './CarouselRender';
 import AppContext from '../AppContext';

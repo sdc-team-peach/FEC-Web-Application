@@ -26,8 +26,8 @@ function reducer(state, action) {
   }
 }
 
-const reviewFetcher = (pages, sort, count) => {
-  const { productId } = useContext(AppContext);
+const reviewFetcher = (sort) => {
+  const { productId, reviewSubmitted } = useContext(AppContext);
   const [state, dispatch] = useReducer(reducer, { reviews: [], loading: true });
 
   useEffect(() => {
@@ -35,9 +35,8 @@ const reviewFetcher = (pages, sort, count) => {
     axios.get('/products/review', {
       params: {
         id: productId,
-        pages,
         sort,
-        count,
+        count: 1000,
       },
     })
       .then((res) => {
@@ -46,7 +45,7 @@ const reviewFetcher = (pages, sort, count) => {
       .catch((e) => {
         dispatch({ type: ACTION.ERROR, payload: { err: e } });
       });
-  }, [pages, sort, count]);
+  }, [sort, productId, reviewSubmitted]);
 
   return state;
 };
