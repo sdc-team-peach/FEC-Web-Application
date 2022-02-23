@@ -1,64 +1,78 @@
 import styled from 'styled-components';
 
-// export const Background = styled.div`
-// width: 100%;
-// height: 100%;
-// background-color: #A9A9A9;
-// position: fixed;
-// display: flex;
-// justify-content: center;
-// align-items: center;
-// `;
-
 export const ModalWrapper = styled.div`
-  position: fixed;
-  top: 25%;
-  bottom: 25%;
-  left: 25%;
-  right: 25%;
-  /* width: 70%;
-  height: 30vh; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 93%;
+  height: 430px;
   background-color: #fff;
   border-radius: 25px;
-  border: solid #e0e0e0 1px;
-  margin: auto;
   z-index: 9;
 `;
 
-export const AddReviewContainer = styled.div`
+export const Container = styled.div`
+  padding: 30px;
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 90%;
   margin: auto;
-  margin-top: 25px;
+  margin-top: 10px;
+  overflow: hidden;
 `;
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: center;
-  gap: 20px;
+  gap: 15px;
 `;
 
 export const UsernameForm = styled.input`
   order: 1;
   height: 30px;
 `;
+
 export const EmailForm = styled.input`
   order: 2;
   height: 30px;
 `;
+
 export const FileForm = styled.input`
   order: 3;
 `;
-export const ReviewInputForm = styled.input`
+
+export const ReviewSummaryForm = styled.input`
   order: 4;
-  height: 150px;
+  height: 30px;
+`;
+
+export const ReviewInputForm = styled.input`
+  order: 5;
+  height: 80px;
+`;
+
+export const Title = styled.h2`
+  height: 30px;
+  margin: 15px;
 `;
 
 export const StarContainer = styled.div`
-  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-align: center;
+  font-size: 35px;
+`;
+
+export const RatingContainer = styled.div`
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  font-size: 15px;
 `;
 
 export const Button = styled.button`
@@ -72,7 +86,7 @@ export const Button = styled.button`
   border: none;
   transition: all .5s ease;
   margin: 8px;
-  order:4;
+  order:6;
 
   &:hover{
       background-color: ${({ primary }) => (primary ? '#fff' : '#cde306')};

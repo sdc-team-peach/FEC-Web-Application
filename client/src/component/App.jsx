@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Reviews from './reviews/Reviews';
+import ReviewModal from './reviews/modal/Modal';
 // eslint-disable-next-line import/no-named-as-default
 import Related from './related/Related';
 import Overview from './overview/Overview';
@@ -40,9 +41,9 @@ function App() {
   const [globalTheRelatedInfo, setGlobalTheRelatedInfo] = useState('hello');
   const [modalClicked, setModalClicked] = useState(false);
   const [globalProductInfo, setGlobalProductInfo] = useState(40344);
-  const [globalAverage, setGlobalState] = useState(0);
-  const [currentSize, setCurrentSize] = useState(0);
-  const [currentQuantity, setCurrentQuantity] = useState(0);
+  const [globalAverage, setGlobalAverage] = useState(0);
+  const [modalReviewClicked, setModalReviewClicked] = useState(true);
+  const [metaCharacteristics, setMetaCharacteristics] = useState(null);
 
   const productIdSetting = {
     productId: globalProductId,
@@ -52,6 +53,9 @@ function App() {
     modalStatus: modalClicked,
     currentSize: currentSize,
     currentQuantity: currentQuantity,
+    modalReviewClicked,
+    globalAverage,
+    metaCharacteristics,
     setGlobalProductInfo,
     setGlobalProductId,
     setGlobalProductStyle,
@@ -59,11 +63,15 @@ function App() {
     setModalClicked,
     setCurrentSize,
     setCurrentQuantity,
+    setModalReviewClicked,
+    setGlobalAverage,
+    setMetaCharacteristics,
   };
 
   return (
     <div>
       <AppContext.Provider value={productIdSetting}>
+      {modalReviewClicked && <ReviewModal />}
         <Overview />
         <Related />
         <MyOutfit />
