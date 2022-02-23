@@ -114,9 +114,14 @@ function App() {
       <AppContext.Provider value={value}>
         {modalReviewClicked && <ReviewModal />}
         {photoModal && <ReviewPhotoModal />}
+<<<<<<< HEAD
         {/* <Overview />
         <Related /> */}
 >>>>>>> 56a8222 (photo review posting and modal completed)
+=======
+        <Overview />
+        <Related />
+>>>>>>> b1dcda2 (review completed)
         <Reviews />
         {modalClicked && (
         <Modal

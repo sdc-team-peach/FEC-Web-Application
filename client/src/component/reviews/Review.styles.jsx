@@ -24,6 +24,9 @@ font-family: Helvetica;
 
 export const ReviewListContainer = styled.div`
 margin: 15px;
+flex-shrink: 0;
+object-fit: cover;
+// flex-grow: 1;
 padding; 10px;
 text-align: left;
 align-items: left;
