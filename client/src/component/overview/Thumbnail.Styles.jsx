@@ -20,10 +20,12 @@ export const ThumbnailImage = styled.div`
   left: 13px;
   &:hover {
     cursor: pointer;
-    border: 5px solid green;
+    border-style:solid;
+    border-color: #cde306;
   }
   &:active{
-    border: 5px solid red;
+    border-style:solid;
+    border-color: black;
 }
 `;
 

@@ -35,18 +35,17 @@ function StyleComponent() {
       {currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> {currentStyle.original_price} </TextSalesPriceOriginal>}
       {currentStyle && currentStyle.sale_price && <TextSalesPrice> {currentStyle.sale_price} </TextSalesPrice>}
       {currentStyle && !currentStyle.sale_price && <TextPrice> {currentStyle.original_price} </TextPrice>}
-      {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
-      {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
-      {currentStyle && <AddToCartButton />}
-      {/* {currentStyle && <p>{currentStyle.original_price}</p>} */}
       <Picture>
         {!loading && allProductStyles.map((style, index) =>
        <Styles
-         key={index}
-         style={style}
-         styles={styles}
+       key={index}
+       style={style}
+       styles={styles}
        />)}
       </Picture>
+       {currentStyle && <SizesDropdownMenu sizes={currentStyle.skus} />}
+       {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
+       {currentStyle && <AddToCartButton />}
     </div>
   );
 }

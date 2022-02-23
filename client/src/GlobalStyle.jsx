@@ -88,6 +88,7 @@ body{
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    cursor: pointer;
   }
 
   .menu ul {
@@ -98,6 +99,17 @@ body{
 
   .menu li {
     border-bottom: 1px solid #dddddd;
+  }
+
+  .menu li:hover {
+    background-color: #cde306;
+    color: black;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .menu li:active{
+    // transform: translateY(.5rem);
+    border: 2px solid black;
   }
 
   .menu li div {
@@ -151,7 +163,8 @@ body{
   }
 
   .activeTwo{
-    transform: translateY(.5rem);
+    border-style:solid;
+    border-color: black;
 }
 `;
 
