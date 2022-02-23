@@ -27,7 +27,7 @@ function Carousel({ children, photo }) {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-    }, 150000);
+    }, 3000);
 
     return () => {
       if (interval) {
