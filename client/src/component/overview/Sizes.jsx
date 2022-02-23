@@ -5,7 +5,7 @@ function Sizes({ sizes, inventory }) {
   return (
     <SizeContainer>
       <Text>{sizes}</Text>
-      <Text>{inventory}</Text>
+      {/* <Text>{inventory}</Text> */}
     </SizeContainer>
   );
 }

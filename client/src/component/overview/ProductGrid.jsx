@@ -13,10 +13,11 @@ export const ProductContainer = styled.div`
 `;
 
 export const Main = styled.main`
-  background: grey;
+  background: white;
   color: black;
   grid-area: main;
   padding: 0.25rem;
+  align-content: center;
 `;
 
 export const SideBar = styled.div`
