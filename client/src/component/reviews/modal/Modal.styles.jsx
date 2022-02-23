@@ -7,14 +7,15 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   text-align: center;
   width: 93%;
-  height: 430px;
+  height: 450px;
   background-color: #fff;
   border-radius: 25px;
   z-index: 9;
+
 `;
 
 export const Container = styled.div`
-  padding: 30px;
+  padding: 20px;
   position: relative;
   width: 100%;
   height: 90%;
@@ -27,7 +28,7 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: flex-start;
   align-content: center;
-  gap: 15px;
+  gap: 10px;
 `;
 
 export const UsernameForm = styled.input`
@@ -84,8 +85,9 @@ export const Button = styled.button`
   outline: none;
   cursor: pointer;
   border: none;
+  width: 20%;
   transition: all .5s ease;
-  margin: 8px;
+  margin: 0px 225px;
   order:6;
 
   &:hover{
@@ -97,6 +99,7 @@ export const Button = styled.button`
       transform: translateY(.5rem);
   }
 `;
+
 // .darkBG {
 //   background-color: rgba(0, 0, 0, 0.2);
 //   width: 100vw;

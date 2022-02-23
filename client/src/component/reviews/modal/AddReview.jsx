@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import {
   Container, UsernameForm, EmailForm, Title, ReviewSummaryForm, ModalWrapper,
   ReviewInputForm, Form, Button, FileForm,
@@ -6,13 +7,14 @@ import {
 import AppContext from '../../AppContext';
 
 // eslint-disable-next-line react/prop-types
-function AddReview({ input, setInput }) {
+function AddReview({ input, setInput, post }) {
+  const [images, setImages] = useState([]);
   function handleUsernameChange(e) {
-    setInput({ ...input, username: e.target.value });
+    setInput({ ...input, name: e.target.value });
   }
 
   function handleReviewChange(e) {
-    setInput({ ...input, review: e.target.value });
+    setInput({ ...input, body: e.target.value });
   }
 
   function handleEmailChange(e) {
@@ -20,11 +22,35 @@ function AddReview({ input, setInput }) {
   }
 
   function handleFileChange(e) {
-    setInput({ ...input, file: [...input.file, e.target.value] });
+    const photoFiles = e.target.files;
+    const uploader = Object.values(photoFiles).map((item) => {
+      const imageData = new FormData();
+      imageData.append('file', item);
+      imageData.append('upload_preset', 'inny_fec');
+      imageData.append('cloud_name', 'dhx5k7wb3');
+      return axios.post('https://api.cloudinary.com/v1_1/dhx5k7wb3/image/upload', imageData);
+    });
+
+    axios.all(uploader)
+      .then(
+        axios.spread((...response) => {
+          const urlAll = response.map((item) => item.data.url);
+          setInput({ ...input, photos: urlAll });
+        }),
+      );
   }
 
   function handleSummaryChange(e) {
     setInput({ ...input, summary: e.target.value });
+  }
+
+  function handleRecommendChange(e) {
+    setInput({ ...input, recommend: !input.recommend });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    post();
   }
 
   return (
@@ -32,6 +58,14 @@ function AddReview({ input, setInput }) {
       <Container>
         <Form onSubmit={(e) => { handleSubmit(e); }}>
           <Title>Tell us how we did!</Title>
+          <p>
+            Do you recommend this product? &nbsp;&nbsp; Yes &nbsp;
+            <input
+              type="radio"
+              checked={input.recommend}
+              onClick={(e) => { handleRecommendChange(e); }}
+            />
+          </p>
           <UsernameForm
             type="text"
             value={input.username}
@@ -50,6 +84,7 @@ function AddReview({ input, setInput }) {
             type="file"
             id="myFile"
             name="fileName"
+            multiple="multiple"
             onChange={(e) => { handleFileChange(e); }}
           />
           <ReviewSummaryForm
@@ -66,6 +101,7 @@ function AddReview({ input, setInput }) {
             onChange={(e) => { handleReviewChange(e); }}
             required
           />
+          <Button type="submit"> Submit </Button>
         </Form>
       </Container>
     </ModalWrapper>

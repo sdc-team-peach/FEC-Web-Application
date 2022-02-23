@@ -7,7 +7,6 @@ import { StarRate } from './Breakdown.styles';
 
 function Breakdown() {
   const { metaData, loading } = reviewMetaFetcher();
-  console.log(metaData);
   const [ratingAverage, setratingAverage] = useState(0);
   const myContext = useContext(AppContext);
 

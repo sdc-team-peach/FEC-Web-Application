@@ -12,7 +12,7 @@ function Characteristics({ input, setInput }) {
   const { productId, metaCharacteristics } = useContext(AppContext);
 
   function addRating(num) {
-    setInput({ ...input, rate: num });
+    setInput({ ...input, rating: num });
   }
 
   function addCharRating(char, num) {

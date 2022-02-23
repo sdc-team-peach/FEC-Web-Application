@@ -8,17 +8,30 @@ import Characteristics from './RatingChars';
 // eslint-disable-next-line react/prop-types
 function ReviewModal() {
   const {
-    productId, modalReviewClicked, setModalReviewClicked, metaCharacteristics,
+    productId, modalReviewClicked, setModalReviewClicked, metaCharacteristics, setReviewSubmitted,
   } = useContext(AppContext);
 
   const [input, setInput] = useState({
     product_id: productId, name: '', body: '', summary: '', email: '', rating: 1, photos: [], recommend: false, characteristics: {},
   });
+console.log(input);
+  function sendPost() {
+    console.log(input);
+    axios.post('/reviews', input)
+      .then((res) => {
+        console.log('post succress');
+        setModalReviewClicked((initial) => !initial);
+        setReviewSubmitted((initial) => !initial);
+      })
+      .catch((err) => {
+        console.log('err on post!');
+      });
+  }
 
   return (
     <Carousel toggle={setModalReviewClicked}>
       <Characteristics input={input} setInput={setInput} />
-      <AddReview input={input} setInput={setInput} />
+      <AddReview input={input} setInput={setInput} post={() => sendPost()} />
     </Carousel>
   );
 }

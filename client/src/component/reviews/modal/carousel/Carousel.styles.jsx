@@ -16,6 +16,17 @@ export const Container = styled.div`{
   justify-content: center;
 }`;
 
+export const DarkBG = styled.div`
+background-color: rgba(0, 0, 0, 0.2);
+width: 100vw;
+height: 100vh;
+z-index: 9998;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+position: fixed;
+`;
+
 export const Wrapper = styled.div`{
   width: 100%;
   height: 500px;
@@ -32,7 +43,6 @@ export const Content = styled.div`{
   display: inline-flex;
   width: 200%;
   transition: all 250ms linear;
-
 }`;
 
 export const ButtonWrapper = styled.div`{
@@ -40,7 +50,7 @@ export const ButtonWrapper = styled.div`{
   justify-content: center;
   align-items: center;
   width: 50%;
-  margin: 0px 150px;
+  margin: 0px 160px;
 }`;
 
 export const Next = styled.button`
