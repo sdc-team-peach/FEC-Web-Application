@@ -19,8 +19,12 @@ export const ThumbnailImage = styled.div`
   position: relative;
   left: 13px;
   &:hover {
+    cursor: pointer;
     border: 5px solid green;
   }
+  &:active{
+    border: 5px solid red;
+}
 `;
 
 export const Text = styled.div`

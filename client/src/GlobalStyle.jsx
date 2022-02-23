@@ -149,6 +149,10 @@ body{
     background-color: #cde306;
     color: black;
   }
+
+  .activeTwo{
+    transform: translateY(.5rem);
+}
 `;
 
 export const Container = styled.div`
@@ -204,7 +208,7 @@ export const TextPrice = styled.p`
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-
+  margin-left: 10px;
 
 `;
 
@@ -216,6 +220,7 @@ export const TextSalesPriceOriginal = styled.p`
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
+  margin-left: 10px;
 
 `;
 
@@ -226,7 +231,8 @@ export const TextSalesPrice = styled.span`
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-left: 100px;
+  margin-left: 110px;
+
 
 `;
 
