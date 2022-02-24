@@ -28,7 +28,7 @@ export const SideBar = styled.div`
   // background: white;
   color: black;
   grid-area: sidebar;
-  padding: 0.25rem;
+  // padding: 0.25rem;
 `;
 
 export const SideBar2 = styled.div`
