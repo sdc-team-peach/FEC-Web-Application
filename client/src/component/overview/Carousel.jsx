@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '../../GlobalStyle';
+import { Button, ButtonTwo } from '../../GlobalStyle';
 
 export function CarouselItem ({ children, width }) {
   return (
@@ -47,30 +47,30 @@ function Carousel({ children, photo }) {
         {React.Children.map(children, (child, index) => <img src={child.key} style={{width: '100%'}} />) }
       </div>
       <div className="indicators">
-        <Button
+        <ButtonTwo
           onClick={() => {
             updateIndex(activeIndex - 1);
           }}
         >
           Prev
-        </Button>
+        </ButtonTwo>
         {React.Children.map(children, (child, index) => (
-          <Button
+          <ButtonTwo
             className={`${index === activeIndex ? 'active' : ''}`}
             onClick={() => {
               updateIndex(index);
             }}
           >
             {index + 1}
-          </Button>
+          </ButtonTwo>
         ))}
-        <Button
+        <ButtonTwo
           onClick={() => {
             updateIndex(activeIndex + 1);
           }}
         >
           Next
-        </Button>
+        </ButtonTwo>
       </div>
     </div>
   );

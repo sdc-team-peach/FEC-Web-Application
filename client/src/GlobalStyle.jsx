@@ -37,7 +37,7 @@ body{
     align-items: center;
     z-index: 9999;
     flex: 0;
-    margin-top:30px;
+    margin-top:60px;
   }
 
   .menu-trigger {
@@ -119,19 +119,20 @@ body{
     display: block;
   }
 
-  .menu:hover {
+.menu:hover {
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
 
   .img {
     width:100%;
-    max-width:400px;
+    height:100%;
+    max-width:200px;
   }
 
   .carousel {
     overflow: hidden;
     width:100%;
-    max-width:650px;
+    max-width:450px;
   }
 
   .inner {
@@ -246,6 +247,29 @@ export const TextSalesPrice = styled.span`
   position: absolute;
   margin-left: 110px;
 
+
+`;
+
+export const ButtonTwo = styled.button`
+border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
+background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
+color: ${({ primary }) => (primary ? '#000' : '#fff')};
+padding: ${({ big }) => (big ? '9px 15px' : '5px 14px')};
+font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
+outline: none;
+cursor: pointer;
+border: none;
+transition: all .5s ease;
+margin: 8px;
+
+&:hover{
+    background-color: ${({ primary }) => (primary ? '#fff' : '#cde306')};
+    transform: translateY(-.5rem) scale(1.02);
+    color: #000;
+}
+&:active{
+    transform: translateY(.5rem);
+}
 
 `;
 
