@@ -19,7 +19,11 @@ export const CardImage = styled.div`
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  &:hover{
+    cursor: pointer;
+    background-image: url(${(props) => props.secBackground});
+  }
 `;
 
 export const ModalIcon = styled.a`
@@ -34,7 +38,7 @@ export const CardTextWrapper = styled.div`
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background: black;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 `;
 
 export const CardTextTitle = styled.h1`

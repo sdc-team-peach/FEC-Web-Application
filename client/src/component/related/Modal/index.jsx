@@ -7,7 +7,6 @@ import {
 } from './ModalStyle';
 import AppContext from '../../AppContext';
 
-
 export function Modal({
   imgUrl1, imgUrl2, currentProduct, comparedProduct,
 }) {

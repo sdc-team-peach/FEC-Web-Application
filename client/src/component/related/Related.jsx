@@ -43,6 +43,9 @@ function Related() {
 
   // const relatedProducts = dataFetcher.relatedFetcher(myContext.productId);
   // console.log(relatedProducts);
+  const changeProduct = (newId) => {
+    myContext.setGlobalProductId(newId);
+  };
 
   return (
     <div>
@@ -96,7 +99,12 @@ function Related() {
       >
 
         {relatedProducts.map(
-          (relatedProduct) => <RelatedProductCard relatedProduct={relatedProduct} />,
+          (relatedProduct) => (
+            <RelatedProductCard
+              relatedProduct={relatedProduct}
+              // onClick={changeProduct(relatedProduct.product_id)}
+            />
+          ),
         )}
 
       </Carousel>

@@ -26,14 +26,14 @@ function reducer(state, action) {
 
 const reviewMetaFetcher = () => {
   const { productId, setMetaCharacteristics } = useContext(AppContext);
-  const request = productId;
+  // const request = productId;
   const [state, dispatch] = useReducer(reducer, { metaData: null, loading: true });
 
   useEffect(() => {
     dispatch({ type: ACTION.MAKE_REQUEST });
     axios.get('/products/review/meta', {
       params: {
-        id: request,
+        id: productId,
       },
     })
       .then((res) => {

@@ -9,7 +9,7 @@ export const ModalWrapper = styled.div`
   right:150px;
   /* width: 70%;
   height: 30vh; */
-  background-color: rgb(240,240,240);
+  background-color: white;
   border-radius: 25px;
   border: solid #e0e0e0 1px;
   margin: auto;
