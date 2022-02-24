@@ -37,7 +37,7 @@ body{
     align-items: center;
     z-index: 9999;
     flex: 0;
-    margin-top:105px;
+    margin-top:102px;
   }
 
   .menu-trigger {
@@ -123,18 +123,24 @@ body{
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
 
-  // .img {
-  //   width:100%;
-  //   height:100%;
-  //   max-width:200px;
-  // }
+  .img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+
+  .carouselContainer {
+    width: 598px;
+    height: 598px;
+    display: inline-flex;
+  }
 
   .carousel {
     overflow: hidden;
     width:100%;
-    max-width:400px;
-    margin-left:95px;
+    max-width:598px;
   }
+
 
   .inner {
     white-space: nowrap;
