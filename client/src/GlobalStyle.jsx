@@ -164,7 +164,7 @@ body{
 
   .activeTwo{
     border-style:solid;
-    border-color: red;
+    border-color: black;
 }
 `;
 
