@@ -108,11 +108,11 @@ function App() {
         <Container>
           {modalReviewClicked && <ReviewModal />}
           {photoModal && <ReviewPhotoModal />}
-          {/* <Overview />
+          <Overview />
           <RelatedContainer>
             <Related />
             <MyOutfit />
-          </RelatedContainer> */}
+          </RelatedContainer>
           <Reviews />
           {modalClicked && (
           <Modal
