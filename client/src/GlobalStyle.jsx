@@ -37,7 +37,7 @@ body{
     align-items: center;
     z-index: 9999;
     flex: 0;
-    margin-top:60px;
+    margin-top:175px;
   }
 
   .menu-trigger {
@@ -153,6 +153,7 @@ body{
   .indicators {
     display: flex;
     justify-content: center;
+    bottom: 20px;
   }
 
   .indicators > button {
@@ -255,14 +256,14 @@ export const ButtonTwo = styled.button`
 border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
 background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
 color: ${({ primary }) => (primary ? '#000' : '#fff')};
-padding: ${({ big }) => (big ? '9px 15px' : '5px 14px')};
+padding: ${({ big }) => (big ? '9px 15px' : '10px 16px')};
 font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
 outline: none;
 cursor: pointer;
 border: none;
 transition: all .5s ease;
 margin: 8px;
-
+button: 20px
 &:hover{
     background-color: ${({ primary }) => (primary ? '#fff' : '#cde306')};
     transform: translateY(-.5rem) scale(1.02);

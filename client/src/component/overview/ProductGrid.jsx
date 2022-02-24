@@ -15,7 +15,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const Main = styled.main`
-  background: white;
+  // background: white;
   color: black;
   grid-area: main;
   padding: 0.25rem;
@@ -24,14 +24,14 @@ export const Main = styled.main`
 `;
 
 export const SideBar = styled.div`
-  background: white;
+  // background: white;
   color: black;
   grid-area: sidebar;
   padding: 0.25rem;
 `;
 
 export const SideBar2 = styled.div`
-  background: white;
+  // background: white;
   color: black;
   grid-area: sidebar2;
   padding: 0.25rem;
