@@ -37,7 +37,7 @@ body{
     align-items: center;
     z-index: 9999;
     flex: 0;
-    margin-top:175px;
+    margin-top:100px;
   }
 
   .menu-trigger {
@@ -132,8 +132,8 @@ body{
   .carousel {
     overflow: hidden;
     width:100%;
-    max-width:450px;
-    margin-left:70px;
+    max-width:400px;
+    margin-left:95px;
   }
 
   .inner {
@@ -247,7 +247,7 @@ export const TextSalesPrice = styled.span`
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-left: 110px;
+  margin-left: 125px;
 
 
 `;
@@ -256,7 +256,7 @@ export const ButtonTwo = styled.button`
 border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
 background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
 color: ${({ primary }) => (primary ? '#000' : '#fff')};
-padding: ${({ big }) => (big ? '9px 15px' : '10px 16px')};
+padding: ${({ big }) => (big ? '9px 15px' : '10px 13px')};
 font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
 outline: none;
 cursor: pointer;

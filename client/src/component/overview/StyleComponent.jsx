@@ -32,9 +32,10 @@ function StyleComponent() {
 
   return (
     <div>
-      {currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> {currentStyle.original_price} </TextSalesPriceOriginal>}
-      {currentStyle && currentStyle.sale_price && <TextSalesPrice> {currentStyle.sale_price} </TextSalesPrice>}
-      {currentStyle && !currentStyle.sale_price && <TextPrice> {currentStyle.original_price} </TextPrice>}
+
+      {currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> ${currentStyle.original_price} </TextSalesPriceOriginal>}
+      {currentStyle && currentStyle.sale_price && <TextSalesPrice> ${currentStyle.sale_price} </TextSalesPrice>}
+      {currentStyle && !currentStyle.sale_price && <TextPrice> ${currentStyle.original_price} </TextPrice>}
       <Picture>
         {!loading && allProductStyles.map((style, index) =>
        <Styles

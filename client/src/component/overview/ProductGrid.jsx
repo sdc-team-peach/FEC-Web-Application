@@ -9,6 +9,7 @@ export const ProductContainer = styled.div`
   color: red;
   margin: auto;
   width: 1200px;
+  height: 700px;
   grid-template-areas:
     "main sidebar"
     "main sidebar2"

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Container } from '../../GlobalStyle';
 
-export const Picture = styled(Container)`
+export const Picture = styled.div`
   display: grid;
+  left: 15px;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0.25rem;
   grid-auto-rows: 175px;
@@ -17,8 +17,8 @@ export const ThumbnailImage = styled.div`
   height: 100px;
   display: inline-block;
   position: relative;
-  left: 13px;
-  margin-top:60px;
+  // left: 13px;
+  margin-top:90px;
   &:hover {
     cursor: pointer;
     border-style:solid;
@@ -33,9 +33,9 @@ export const ThumbnailImage = styled.div`
 export const Text = styled.div`
   display: flex;
     font-family: 'Roboto+Mono', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.6;
     font-size: 1.2rem;
     color: #333;
-    margin-left:13px;
+
 `;
