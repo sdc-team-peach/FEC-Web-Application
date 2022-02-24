@@ -46,7 +46,7 @@ function QuantityDropdownMenu({ quantity }) {
       </Button>
       <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
         <ul>
-          <li><div>{listSizes}</div></li>
+          {listSizes}
         </ul>
       </nav>
     </div>
