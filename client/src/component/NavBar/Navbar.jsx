@@ -4,6 +4,7 @@ import {
   NavbarContainer,
   NavLogo,
 } from './Navbar.styles';
+import Cart from './cart/Cart';
 
 export default function Navbar() {
   return (
