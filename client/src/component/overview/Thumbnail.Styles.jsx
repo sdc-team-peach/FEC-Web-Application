@@ -18,7 +18,7 @@ export const ThumbnailImage = styled.div`
   display: inline-block;
   position: relative;
   left: 13px;
-  margin-top:45px;
+  margin-top:60px;
   &:hover {
     cursor: pointer;
     border-style:solid;
