@@ -46,9 +46,8 @@ app.get('/products/styles', (req, res) => {
 app.get('/products/review', (req, res) => {
   const productId = req.query.id;
   const productSort = req.query.sort;
-  const productPage = req.query.pages;
   const productCount = req.query.count;
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=${productPage}&product_id=${productId}&sort=${productSort}&count=${productCount}`, {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?count=${productCount}&sort=${productSort}&product_id=${productId}`, {
     headers: {
       Authorization: config.API_KEY,
     },
@@ -70,7 +69,6 @@ app.get('/products/review/meta', (req, res) => {
 
 app.get('/products/related/styles', (req, res) => {
   const productId = req.query.id;
-  console.log(productId);
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`, {
     headers: {
       Authorization: config.API_KEY,
@@ -140,7 +138,7 @@ app.get('/cart', (req, res) => {
     });
 });
 app.post('/cart', (req, res) => {
-  //param is {sku_id: <somenumber>}
+  // param is {sku_id: <somenumber>}
   const param = req.query;
   axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', param, {
     headers: {
@@ -149,6 +147,35 @@ app.post('/cart', (req, res) => {
   })
     .then((response) => {
       console.log(response);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+});
+
+app.post('/reviews', (req, res) => {
+  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews', req.body, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((result) => {
+      res.status(201).send();
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+});
+
+app.put('/reviews/:review_id', (req, res) => {
+  const { review_id } = req.params;
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${review_id}/helpful`, null, {
+    headers: {
+      Authorization: config.API_KEY,
+    },
+  })
+    .then((result) => {
+      res.status(204).send();
     })
     .catch((err) => {
       res.status(500).send(err);

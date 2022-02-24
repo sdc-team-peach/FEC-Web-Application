@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import reviewMetaFetcher from './breakdownFetcher';
 import StarRatings from '../../ratings/Ratings';
 import RatingBars from './RatingBars';
+import AppContext from '../../AppContext';
 import { StarRate } from './Breakdown.styles';
 
 function Breakdown() {
   const { metaData, loading } = reviewMetaFetcher();
   const [ratingAverage, setratingAverage] = useState(0);
+  const myContext = useContext(AppContext);
 
   function getAverage() {
     if (metaData) {
@@ -19,7 +21,7 @@ function Breakdown() {
         ratingCount += Number(item);
       });
       const result = Number(ratingSum / ratingCount).toFixed(2);
-
+      myContext.setGlobalAverage(result);
       setratingAverage(result);
     }
   }

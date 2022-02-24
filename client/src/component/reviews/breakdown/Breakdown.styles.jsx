@@ -10,7 +10,7 @@ width: 220px;
 
 export const BarContainer = styled.div`
   progress[value] {
-    width: 100px;
+    width: 200px;
     margin-left: 20px;
     appearance: none;
 
