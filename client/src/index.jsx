@@ -7,7 +7,7 @@ import {
 import ReactDOM from 'react-dom';
 import App from './component/App';
 import GlobalStyles from './GlobalStyle';
-import Navbar from './component/navbar/Navbar';
+import Navbar from './component/navigationbar/Navbar';
 
 // ReactDOM.render(<App />, document.getElementById('app'));
 ReactDOM.render(
