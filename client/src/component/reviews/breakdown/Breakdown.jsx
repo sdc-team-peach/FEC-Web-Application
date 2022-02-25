@@ -6,12 +6,12 @@ import AppContext from '../../AppContext';
 import { StarRate } from './Breakdown.styles';
 
 function Breakdown() {
-  const { metaData, loading } = reviewMetaFetcher();
+  const { metaData, loading, chars } = reviewMetaFetcher();
   const [ratingAverage, setratingAverage] = useState(0);
   const myContext = useContext(AppContext);
 
   function getAverage() {
-    if (metaData) {
+    if (metaData && !loading) {
       const { ratings } = metaData;
       const ratingArr = Object.values(ratings);
       let ratingSum = 0;
@@ -33,17 +33,24 @@ function Breakdown() {
   return (
     <>
       {loading && <h4>loading ... </h4>}
-      {!loading
+      {(chars && metaData)
         && (
         <>
           <StarRate>
             <h1>{ratingAverage}</h1>
-            <StarRatings currentId={metaData.product_id} />
+            <StarRatings currentRating={ratingAverage} />
           </StarRate>
-          <RatingBars name="Fit" value={metaData.characteristics.Fit.value} max={5} />
+          {chars.map((item) => (
+            <RatingBars
+              name={item}
+              value={metaData.characteristics[item].value}
+              max={5}
+            />
+          ))}
+          {/* <RatingBars name="Fit" value={metaData.characteristics.Fit.value} max={5} />
           <RatingBars name="Length" value={metaData.characteristics.Length.value} max={5} />
           <RatingBars name="Comfort" value={metaData.characteristics.Comfort.value} max={5} />
-          <RatingBars name="Quality" value={metaData.characteristics.Quality.value} max={5} />
+          <RatingBars name="Quality" value={metaData.characteristics.Quality.value} max={5} /> */}
         </>
         )}
     </>

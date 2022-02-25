@@ -14,7 +14,9 @@ function reducer(state, action) {
       return { metaData: null, loading: true };
     case ACTION.GET_DATA:
       // eslint-disable-next-line max-len
-      return { ...state, metaData: action.payload.metaData, loading: false };
+      return {
+        ...state, metaData: action.payload.metaData, loading: false, chars: Object.keys(action.payload.metaData.characteristics),
+      };
     case ACTION.ERROR:
       return {
         ...state, metaData: null, loading: false, err: action.payload.err,
@@ -26,8 +28,7 @@ function reducer(state, action) {
 
 const reviewMetaFetcher = () => {
   const { productId, setMetaCharacteristics } = useContext(AppContext);
-  // const request = productId;
-  const [state, dispatch] = useReducer(reducer, { metaData: null, loading: true });
+  const [state, dispatch] = useReducer(reducer, { metaData: null, loading: true, chars: null });
 
   useEffect(() => {
     dispatch({ type: ACTION.MAKE_REQUEST });

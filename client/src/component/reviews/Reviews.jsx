@@ -6,7 +6,7 @@ import reviewFetcher from './reviewFetcher';
 import Breakdown from './breakdown/Breakdown';
 import ReviewList from './ReviewList';
 import {
-  SelectContainer, ReviewTitle, ReviewListContainer, RatingBreakdownContainer, Container,
+  SelectContainer, ReviewTitle, ReviewListContainer, RatingBreakdownContainer, Container, WidgetTitle,
 } from './Review.styles';
 
 function Reviews() {
@@ -62,7 +62,15 @@ function Reviews() {
   // console.log(reviewAll);
   return (
     <Container>
+
       <RatingBreakdownContainer>
+        <WidgetTitle>
+          Reviews
+          {' '}
+          <br />
+          {' '}
+          &amp; Ratings
+        </WidgetTitle>
         <Breakdown />
       </RatingBreakdownContainer>
       <SelectContainer>

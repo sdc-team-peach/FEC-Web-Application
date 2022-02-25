@@ -6,11 +6,12 @@ padding; 10px;
 text-align: left;
 align-items: left;
 width: 220px;
+font-size: 20px;
 `;
 
 export const BarContainer = styled.div`
   progress[value] {
-    width: 200px;
+    width: 250px;
     margin-left: 20px;
     appearance: none;
 

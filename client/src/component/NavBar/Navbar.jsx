@@ -14,6 +14,7 @@ export default function Navbar() {
           TEAM DRUID
         </NavLogo>
       </NavbarContainer>
+      <Cart />
     </Nav>
   );
 }

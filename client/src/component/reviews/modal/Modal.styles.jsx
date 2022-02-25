@@ -9,7 +9,7 @@ export const ModalWrapper = styled.div`
   width: 93%;
   height: 450px;
   background-color: #fff;
-  border-radius: 25px;
+  // border-radius: 25px;
   z-index: 9;
 
 `;
@@ -71,6 +71,9 @@ export const StarContainer = styled.div`
 
 export const RatingContainer = styled.div`
   display: flex;
+  border-top: solid 0.3px;
+  margin: auto;
+  width: 50%;
   height: 50px;
   justify-content: center;
   font-size: 15px;

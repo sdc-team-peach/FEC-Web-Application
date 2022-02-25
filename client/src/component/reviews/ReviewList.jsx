@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import axios from 'axios';
-import { MdThumbUpOffAlt } from 'react-icons/md';
 import StarRatings from '../ratings/Ratings';
 import Thumbnails from './reviewPhotos/Thumbnails';
 import {
@@ -11,11 +10,13 @@ import {
 // eslint-disable-next-line react/prop-types
 function ReviewList({ review }) {
   const [helpful, setHelpful] = useState(false);
+  const [count, setCount] = useState(review.helpfulness);
   function handleThumbClick() {
     axios.put(`/reviews/${review.review_id}`)
       .then(() => {
         console.log('helpful works!');
         setHelpful((initial) => !initial);
+        setCount((initial) => initial + 1);
       });
   }
   return (
@@ -33,13 +34,13 @@ function ReviewList({ review }) {
         <Subtext>
           {' '}
           <Thumb
-            color={helpful ? '#00A36C' : '#000'}
+            color={helpful ? '#cde306' : '#000'}
             onClick={() => { handleThumbClick(); }}
           />
           {' '}
           this review was helpful (
-          {review.helpfulness.toString()}
-          )
+          {count.toString()}
+          ) &nbsp;
         </Subtext>
       </Content>
       <Thumbnails photos={review.photos} />
