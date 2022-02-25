@@ -22,6 +22,8 @@ function reducer(state, action) {
       return state;
   }
 }
+//TEST
+
 const StyleFetcher = () => {
   const myContext = useContext(AppContext);
   const [state, dispatch] = useReducer(reducer, { styles: [], loading: true });
