@@ -37,7 +37,7 @@ export function Card({
     <CardWrapper onClick={() => handleChangeId()}>
       <CardImage
         background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
-        secBackground={imgUrl2}
+        secBackground={imgUrl2.url}
       />
       <AiFillStar
         onClick={handleModalOnclick}

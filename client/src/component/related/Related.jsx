@@ -13,33 +13,57 @@ function Related() {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  const fetchingRelated = async () => {
-    const res1 = await axios.get('/products/related/styles', {
-      params: { id: myContext.productId },
-    });
-    const res2 = await axios.get('/products/related', {
-      params: { id: myContext.productId },
-    });
-    console.log('tyles:', res1.data, 'info:', res2.data);
-    const result = res1.data.map((style) => {
-      for (const item of res2.data) {
-        // console.log(item.id)
-        if (Number(style.product_id) === item.id) {
-          // eslint-disable-next-line no-param-reassign
-          style.title = item.name;
-          // eslint-disable-next-line no-param-reassign
-          style.category = item.category;
-          style.features = item.features;
-        }
-      }
-      return style;
-    });
-    setRelatedProducts(result);
-  };
+  // const fetchingRelated = async () => {
+  //   const res1 = await axios.get('/products/related/styles', {
+  //     params: { id: myContext.productId },
+  //   });
+  //   const res2 = await axios.get('/products/related', {
+  //     params: { id: myContext.productId },
+  //   });
+  //   console.log('tyles:', res1.data, 'info:', res2.data);
+  //   const result = res1.data.map((style) => {
+  //     for (const item of res2.data) {
+  //       // console.log(item.id)
+  //       if (Number(style.product_id) === item.id) {
+  //         // eslint-disable-next-line no-param-reassign
+  //         style.title = item.name;
+  //         // eslint-disable-next-line no-param-reassign
+  //         style.category = item.category;
+  //         style.features = item.features;
+  //       }
+  //     }
+  //     return style;
+  //   });
+  //   setRelatedProducts(result);
+  // };
 
   useEffect(() => {
+    const fetchingRelated = async () => {
+      const res1 = await axios.get('/products/related/styles', {
+        params: { id: myContext.productId },
+      });
+      const res2 = await axios.get('/products/related', {
+        params: { id: myContext.productId },
+      });
+      console.log('tyles:', res1.data, 'info:', res2.data);
+      const result = res1.data.map((style) => {
+        for (const item of res2.data) {
+          // console.log(item.id)
+          if (Number(style.product_id) === item.id) {
+            // eslint-disable-next-line no-param-reassign
+            style.title = item.name;
+            // eslint-disable-next-line no-param-reassign
+            style.category = item.category;
+            style.features = item.features;
+          }
+        }
+        return style;
+      });
+      setRelatedProducts(result);
+    };
     fetchingRelated();
-  }, []);
+  }, [myContext.productId]);
+  console.log('benjue', relatedProducts);
 
   // const relatedProducts = dataFetcher.relatedFetcher(myContext.productId);
   // console.log(relatedProducts);
