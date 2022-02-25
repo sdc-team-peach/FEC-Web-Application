@@ -16,7 +16,8 @@ padding-left: 10px;
 
 export const RelatedContainer = styled.div`
 margin: auto;
-padding: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
 width: 1200px;
 `;
 
