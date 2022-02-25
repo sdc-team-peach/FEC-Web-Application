@@ -19,14 +19,14 @@ function RelatedProductCard({ relatedProduct }) {
     <div>
       <span>
         <Card
-          imgUrl={relatedProduct.results[3].photos[0].url}
+          imgUrl={relatedProduct.results[0].photos[0].url}
           title={relatedProduct.title}
           body={relatedProduct.category}
-          price={`$${relatedProduct.results[3].original_price}`}
-          salesPrice={relatedProduct.results[3].sale_price}
+          price={`$${relatedProduct.results[0].original_price}`}
+          salesPrice={relatedProduct.results[0].sale_price}
           handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); }}
           id={relatedProduct.product_id}
-          imgUrl2={relatedProduct.results[2].photos[0].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
+          imgUrl2={relatedProduct.results[0].photos[1] || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
         />
         {/* <div>
         {relatedProduct.results[0].photos[0].url}

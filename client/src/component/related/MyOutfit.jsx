@@ -11,10 +11,10 @@ function MyOutfit() {
   const [myOutfits, setMyOutfits] = useState(() => {
     const values = [];
     const keys = Object.keys(localStorage);
-    let i = keys.length;
-    while (i--) {
-      values.push(JSON.parse(localStorage.getItem(keys[i])));
-    }
+    // let i = keys.length;
+    // while (i--) {
+      values.push(JSON.parse(localStorage.getItem(keys[0])));
+    // }
     // for (var key in localStorage) {
     //   values[key] = JSON.parse(localStorage.getItem(key));
     // }

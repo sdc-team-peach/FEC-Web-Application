@@ -46,7 +46,7 @@ function Card({
 }
 
 function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
-  console.log('before', myOutfits);
+  // console.log('before', myOutfits);
   const handleRemove = () => {
     const { id } = myOutfitProduct.info;
     localStorage.removeItem(id);
@@ -81,4 +81,4 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
   );
 }
 
-export default MyOutfitCard;
+export default MyOutfitCard; 

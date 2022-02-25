@@ -6,7 +6,7 @@ import AppContext from '../AppContext';
 export default function Styles({ style, key, styles }) {
   const myContext = useContext(AppContext);
   const [activeIndex, setActiveIndex] = useState(myContext.productStyle);
-  console.log(style);
+  // console.log(style);
   const clearClass = () => {
     const element = document.getElementsByClassName('activeTwo');
     element.classList.remove('activeTwo');
