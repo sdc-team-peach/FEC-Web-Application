@@ -1,7 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillStar } from 'react-icons/ai';
+import AppContext from '../../AppContext';
 import {
   CardWrapper,
   CardImage,
@@ -17,8 +18,9 @@ import {
 import StarRatings from '../../ratings/Ratings';
 
 export function Card({
-  title, imgUrl, price, body, salesPrice, handleModalOnclick, id
+  title, imgUrl, price, body, salesPrice, handleModalOnclick, id, imgUrl2,
 }) {
+  const { setGlobalProductId } = useContext(AppContext);
   // let img = '';
   // if (imgUrl == null) {
   //   img = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png';
@@ -26,9 +28,17 @@ export function Card({
   //   img = imgUrl;
   // }
   // const img = imgUrl || './Image-Not-Available.png';
+  function handleChangeId() {
+    console.log(id);
+    setGlobalProductId(id);
+  }
+
   return (
-    <CardWrapper>
-      <CardImage background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'} />
+    <CardWrapper onClick={() => handleChangeId()}>
+      <CardImage
+        background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
+        secBackground={imgUrl2}
+      />
       <AiFillStar
         onClick={handleModalOnclick}
         style={{
@@ -39,10 +49,11 @@ export function Card({
         size="20px"
         color="rgb(245,245,245)"
       />
-      {/* <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon> */}
       <CardTextWrapper>
         <StarRatings
-        currentId={id} color='yellow'/>
+          currentId={id}
+          color="#cde306"
+        />
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>
         {salesPrice && <CardTextSalesPriceOriginal>{price}</CardTextSalesPriceOriginal>}

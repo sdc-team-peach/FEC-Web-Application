@@ -1,8 +1,22 @@
 import styled from 'styled-components';
-import { BsHandThumbsUpFill } from 'react-icons/bs';
+import { MdThumbUpAlt } from 'react-icons/md';
 
 export const Container = styled.div`
 margin: auto;
+width: 1200px;
+`;
+
+export const WidgetTitle = styled.h1`
+font-size: 45px;
+font-weight: bold;
+margin: 10px 0px;
+padding-top: 1rem;
+padding-left: 10px;
+`;
+
+export const RelatedContainer = styled.div`
+margin: auto;
+padding: 50px;
 width: 1200px;
 `;
 
@@ -30,24 +44,24 @@ object-fit: cover;
 padding; 10px;
 text-align: left;
 align-items: left;
-width: 800px;
+width: 700px;
 float: left;
 `;
 
 export const RatingBreakdownContainer = styled.div`
-margin: 15px;
+margin-right: 45px;
 text-align: left;
 align-items: left;
 float: left;
-height: 350px;
-width: 250px;
+height: 800px;
+width: 320px;
 background-color: #fff;
 `;
 
 export const ReviewContainer = styled.div`
 margin: 15px;
 padding: 8px 10px;
-background-color: #ededed;
+border-bottom: solid 0.5px;
 background-position: center;
 background-repeat: no-repeat;
 text-align: left;
@@ -64,34 +78,40 @@ float: left;
 `;
 
 export const Title = styled.h2`
-font-size: 15px;
-font-weight: bold;
+font-size: 20px;
+font-family: 'Roboto', sans-serif;
+font-weight: 500;
 margin: 10px 0px;
 padding-top: 1rem;
 `;
 
 export const Subtext = styled.p`
 font-size: 16px;
-font-weight: thin;
-padding-top: 1rem;
+font-family: 'Roboto', sans-serif;
+font-weight: 300;
+padding-top: 2rem;
+display: flex;
 text-align: right;
-align-items: right;
+align-items: center;
+justify-content: flex-end;
 `;
 
 export const SelectContainer = styled.div`
-margin: 10px;
+// margin: 10px;
+margin-top: 30px;
 padding: 8px 10px;
 width: 500px;
 float: left;
 `;
 
-export const Thumb = styled(BsHandThumbsUpFill)`
+export const Thumb = styled(MdThumbUpAlt)`
   background-color:  '#000';
-  font-size: 20px;
+  font-size: 25px;
+
   outline: none;
   cursor: pointer;
   border: none;
-  transition: all .5s ease;
+  transition: all .2s ease;
   order:6;
   &:hover{
       transform: translateY(-.5rem) scale(1.02);

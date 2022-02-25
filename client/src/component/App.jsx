@@ -8,6 +8,7 @@ import AppContext from './AppContext';
 import ReviewPhotoModal from './reviews/reviewPhotos/modal/ReviewPhotoModal';
 import { Modal } from './related/Modal';
 import MyOutfit from './related/MyOutfit';
+import { Container, RelatedContainer } from './reviews/Review.styles';
 
 function App() {
   // const [globalProductId, setGlobalProductId] = useState(40344);
@@ -104,20 +105,24 @@ function App() {
   return (
     <div>
       <AppContext.Provider value={value}>
-        {modalReviewClicked && <ReviewModal />}
-        {photoModal && <ReviewPhotoModal />}
-        <Overview />
-        <Related />
-        <MyOutfit />
-        <Reviews />
-        {modalClicked && (
-        <Modal
-          imgUrl1={globalProductStyle.photos[0].url}
-          imgUrl2={globalTheRelatedInfo.results[3].photos[0].url}
-          currentProduct={globalProductInfo}
-          comparedProduct={globalTheRelatedInfo}
-        />
-        )}
+        <Container>
+          {modalReviewClicked && <ReviewModal />}
+          {photoModal && <ReviewPhotoModal />}
+          <Overview />
+          <RelatedContainer>
+            <Related />
+            <MyOutfit />
+          </RelatedContainer>
+          <Reviews />
+          {modalClicked && (
+          <Modal
+            imgUrl1={globalProductStyle.photos[0].url}
+            imgUrl2={globalTheRelatedInfo.results[3].photos[0].url}
+            currentProduct={globalProductInfo}
+            comparedProduct={globalTheRelatedInfo}
+          />
+          )}
+        </Container>
       </AppContext.Provider>
     </div>
   );
