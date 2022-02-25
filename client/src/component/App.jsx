@@ -109,7 +109,7 @@ function App() {
           {modalReviewClicked && <ReviewModal />}
           {photoModal && <ReviewPhotoModal />}
           <Overview />
-          <h1 className="recommended" >Recommended Products</h1>
+          <h1 className="recommended">Recommended Products</h1>
           <RelatedContainer>
             <Related />
             <MyOutfit />
