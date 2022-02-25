@@ -9,7 +9,7 @@ import App from './component/App';
 import GlobalStyles from './GlobalStyle';
 import Navbar from './component/navbar/Navbar';
 
-// ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app')); WOOOOOHHOOOO
 ReactDOM.render(
   <Router>
     <GlobalStyles />
