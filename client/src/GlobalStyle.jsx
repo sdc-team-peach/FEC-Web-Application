@@ -37,7 +37,7 @@ body{
     align-items: center;
     z-index: 9999;
     flex: 0;
-    margin-top:102px;
+    margin-top:30px;
   }
 
   .menu-trigger {
@@ -88,7 +88,6 @@ body{
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    cursor: pointer;
   }
 
   .menu ul {
@@ -101,17 +100,6 @@ body{
     border-bottom: 1px solid #dddddd;
   }
 
-  .menu li:hover {
-    background-color: #cde306;
-    color: black;
-    border-bottom: 1px solid #dddddd;
-  }
-
-  .menu li:active{
-    // transform: translateY(.5rem);
-    border: 2px solid black;
-  }
-
   .menu li div {
     text-decoration: none;
     color: #333333;
@@ -119,28 +107,20 @@ body{
     display: block;
   }
 
-.menu:hover {
+  .menu:hover {
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
 
   .img {
     width:100%;
-    height:100%;
-    object-fit:contain;
-  }
-
-  .carouselContainer {
-    width: 598px;
-    height: 598px;
-    display: inline-flex;
+    max-width:400px;
   }
 
   .carousel {
     overflow: hidden;
     width:100%;
-    max-width:598px;
+    max-width:650px;
   }
-
 
   .inner {
     white-space: nowrap;
@@ -159,7 +139,6 @@ body{
   .indicators {
     display: flex;
     justify-content: center;
-    bottom: 20px;
   }
 
   .indicators > button {
@@ -172,8 +151,7 @@ body{
   }
 
   .activeTwo{
-    border-style:solid;
-    border-color: black;
+    transform: translateY(.5rem);
 }
 `;
 
@@ -226,11 +204,11 @@ margin: 8px;
 export const TextPrice = styled.p`
   color: black;
   font-size: 30px;
-  font-weight: 2000;
+  font-weight: 1000;
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-top: 15px;
+  margin-left: 10px;
 
 `;
 
@@ -238,45 +216,23 @@ export const TextSalesPriceOriginal = styled.p`
   color: black;
   text-decoration: line-through;
   font-size: 30px;
-  font-weight: 2000;
+  font-weight: 1000;
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-top: 15px;
+  margin-left: 10px;
+
 `;
 
 export const TextSalesPrice = styled.span`
   color: red;
   font-size: 30px;
-  font-weight: 2000;
+  font-weight: 1000;
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-left: 125px;
-  margin-top: 15px;
+  margin-left: 110px;
 
-`;
-
-export const ButtonTwo = styled.button`
-border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
-background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
-color: ${({ primary }) => (primary ? '#000' : '#fff')};
-padding: ${({ big }) => (big ? '9px 15px' : '10px 13px')};
-font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
-outline: none;
-cursor: pointer;
-border: none;
-transition: all .5s ease;
-margin: 8px;
-button: 20px
-&:hover{
-    background-color: ${({ primary }) => (primary ? '#fff' : '#cde306')};
-    transform: translateY(-.5rem) scale(1.02);
-    color: #000;
-}
-&:active{
-    transform: translateY(.5rem);
-}
 
 `;
 
