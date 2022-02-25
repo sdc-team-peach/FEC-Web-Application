@@ -13,6 +13,7 @@ import AppContext from '../AppContext';
 // eslint-disable-next-line react/prop-types
 function RelatedProductCard({ relatedProduct }) {
   const myContext = useContext(AppContext);
+  // console.log('where', relatedProduct);
 
   return (
     <div>
@@ -25,6 +26,7 @@ function RelatedProductCard({ relatedProduct }) {
           salesPrice={relatedProduct.results[3].sale_price}
           handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); }}
           id={relatedProduct.product_id}
+          imgUrl2={relatedProduct.results[2].photos[0].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
         />
         {/* <div>
         {relatedProduct.results[0].photos[0].url}

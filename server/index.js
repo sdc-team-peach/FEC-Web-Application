@@ -79,7 +79,7 @@ app.get('/products/related/styles', (req, res) => {
       res.status(500).send(err);
     })
     .then((resultArr) => {
-      // console.log('this is the arr', resultArr.data);
+      // console.log('this is the arr', resultArr);
       const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}/styles`, {
         headers: {
           Authorization: config.API_KEY,
@@ -108,7 +108,7 @@ app.get('/products/related', (req, res) => {
       res.status(500).send(err);
     })
     .then((resultArr) => {
-      // console.log('this is the arr', resultArr.data);
+      // console.log('this is the arr 2', resultArr);
       const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}`, {
         headers: {
           Authorization: config.API_KEY,

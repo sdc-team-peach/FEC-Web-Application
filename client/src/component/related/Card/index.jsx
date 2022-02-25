@@ -17,7 +17,7 @@ import {
 import StarRatings from '../../ratings/Ratings';
 
 export function Card({
-  title, imgUrl, price, body, salesPrice, handleModalOnclick, id
+  title, imgUrl, price, body, salesPrice, handleModalOnclick, id, imgUrl2,
 }) {
   // let img = '';
   // if (imgUrl == null) {
@@ -28,7 +28,10 @@ export function Card({
   // const img = imgUrl || './Image-Not-Available.png';
   return (
     <CardWrapper>
-      <CardImage background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'} />
+      <CardImage
+        background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
+        secBackground={imgUrl2}
+      />
       <AiFillStar
         onClick={handleModalOnclick}
         style={{
@@ -39,10 +42,11 @@ export function Card({
         size="20px"
         color="rgb(245,245,245)"
       />
-      {/* <ModalIcon onClick={handleModalOnclick}>⭐️</ModalIcon> */}
       <CardTextWrapper>
         <StarRatings
-        currentId={id} color='yellow'/>
+          currentId={id}
+          color="#cde306"
+        />
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>
         {salesPrice && <CardTextSalesPriceOriginal>{price}</CardTextSalesPriceOriginal>}

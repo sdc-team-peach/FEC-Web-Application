@@ -18,11 +18,11 @@ import StarRatings from '../../ratings/Ratings';
 
 // need to work on removing thing that gets clicked from the state as well localstorage
 function Card({
-  title, imgUrl, price, body, salesPrice, handleRemove, id
+  title, imgUrl, price, body, salesPrice, handleRemove, id, secImgUrl,
 }) {
   return (
     <CardWrapper>
-      <CardImage background={imgUrl} />
+      <CardImage background={imgUrl} secBackground={secImgUrl} />
       <IoIosRemoveCircle
         onClick={handleRemove}
         style={{
@@ -34,7 +34,7 @@ function Card({
         color="rgb(245,245,245)"
       />
       <CardTextWrapper>
-        <StarRatings currentId={id} color='yellow' />
+        <StarRatings currentId={id} color="#cde306" />
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>{body}</CardTextBody>
         {salesPrice && <CardTextSalesPriceOriginal>{price}</CardTextSalesPriceOriginal>}
@@ -62,6 +62,7 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
       <span>
         <Card
           imgUrl={myOutfitProduct.style.photos[0].url}
+          secImgUrl={myOutfitProduct.style.photos[1].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
           title={myOutfitProduct.info.name}
           body={myOutfitProduct.info.category}
           price={`$${myOutfitProduct.style.original_price}`}
