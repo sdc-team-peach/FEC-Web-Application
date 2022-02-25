@@ -1,7 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillStar } from 'react-icons/ai';
+import AppContext from '../../AppContext';
 import {
   CardWrapper,
   CardImage,
@@ -19,6 +20,7 @@ import StarRatings from '../../ratings/Ratings';
 export function Card({
   title, imgUrl, price, body, salesPrice, handleModalOnclick, id, imgUrl2,
 }) {
+  const { setGlobalProductId } = useContext(AppContext);
   // let img = '';
   // if (imgUrl == null) {
   //   img = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png';
@@ -26,8 +28,13 @@ export function Card({
   //   img = imgUrl;
   // }
   // const img = imgUrl || './Image-Not-Available.png';
+  function handleChangeId() {
+    console.log(id);
+    setGlobalProductId(id);
+  }
+
   return (
-    <CardWrapper>
+    <CardWrapper onClick={() => handleChangeId()}>
       <CardImage
         background={imgUrl || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
         secBackground={imgUrl2}

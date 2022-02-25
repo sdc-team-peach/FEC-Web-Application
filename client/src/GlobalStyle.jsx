@@ -1,8 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@700&family=Roboto+Serif:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=DM+Serif+Text&family=Roboto+Mono:wght@700&family=Roboto:wght@300;400;500&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -21,11 +20,12 @@ html {
     }
 }
 body{
-    font-family: 'Roboto+Mono', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     font-size: 1.6rem;
-    background: #F9F9F9;
+    background: #fff;
+    // background: #F9F9F9;
     color: #333;
 
 }
@@ -179,6 +179,7 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
+
 border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
 background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
 color: ${({ primary }) => (primary ? '#000' : '#fff')};
@@ -186,6 +187,8 @@ padding: ${({ big }) => (big ? '18px 30px' : '10px 28px')};
 font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
 outline: none;
 cursor: pointer;
+font-family: 'Roboto';
+font-weight: 400;
 border: none;
 transition: all .5s ease;
 margin: 8px;

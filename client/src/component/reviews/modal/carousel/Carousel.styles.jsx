@@ -11,7 +11,7 @@ export const Container = styled.div`{
   display: flex;
   background-color: #fff;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
+  // border-radius: 25px;
   z-index: 9999;
   justify-content: center;
 }`;
