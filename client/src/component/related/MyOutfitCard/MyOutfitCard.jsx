@@ -50,29 +50,28 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
   const handleRemove = () => {
     const { id } = myOutfitProduct.info;
     localStorage.removeItem(id);
-    const remove = myOutfits.filter((outfit) => {
+    const remove = myOutfits.filter((outfit) =>
       // console.log('testhbj', outfit);
-      return outfit.info.id !== id;
-    });
+      outfit.info.id !== id);
     // console.log('lastcheck', remove);
     setMyOutfit(remove);
   };
   return (
     <div>
       <span>
-        { myOutfitProduct &&
+        { myOutfitProduct
+        && (
         <Card
-        imgUrl={myOutfitProduct.style.photos[0].url}
-        secImgUrl={myOutfitProduct.style.photos[1].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
-        title={myOutfitProduct.info.name}
-        body={myOutfitProduct.info.category}
-        price={`$${myOutfitProduct.style.original_price}`}
-        salesPrice={myOutfitProduct.style.sale_price}
-        handleRemove={handleRemove}
-        id={myOutfitProduct.info.id}
-        // handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); console.log(myContext.modalStatus); }}
-      />
-        }
+          imgUrl={myOutfitProduct.style.photos[0].url}
+          secImgUrl={myOutfitProduct.style.photos[1].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
+          title={myOutfitProduct.info.name}
+          body={myOutfitProduct.info.category}
+          price={`$${myOutfitProduct.style.original_price}`}
+          salesPrice={myOutfitProduct.style.sale_price}
+          handleRemove={handleRemove}
+          id={myOutfitProduct.info.id}
+        />
+        )}
 
         {/* <div>
         {relatedProduct.results[0].photos[0].url}

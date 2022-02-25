@@ -8,18 +8,28 @@ import { MyOutfitActionCard } from './MyOutfitCard';
 import MyOutfitCard from './MyOutfitCard/MyOutfitCard';
 
 function MyOutfit() {
-  const [myOutfits, setMyOutfits] = useState(() => {
-    const values = [];
-    const keys = Object.keys(localStorage);
-    // let i = keys.length;
-    // while (i--) {
-      values.push(JSON.parse(localStorage.getItem(keys[0])));
-    // }
-    // for (var key in localStorage) {
-    //   values[key] = JSON.parse(localStorage.getItem(key));
-    // }
-    return values;
-  });
+  const keys = Object.keys(localStorage);
+  const values = [];
+  if (keys.length > 0) {
+    values.push(JSON.parse(localStorage.getItem(keys[0])));
+  }
+
+  const [myOutfits, setMyOutfits] = useState(values);
+  // const values = [];
+  // // const keys = Object.keys(localStorage);
+  // // console.log('key', keys);
+  // // // if (keys[0]) {
+  // //   values.push(JSON.parse(localStorage.getItem(keys[0])));
+  // // }
+  // // let i = keys.length;
+  // // while (i--) {
+  //   // values.push(JSON.parse(localStorage.getItem(keys[0])));
+  // // }
+  // // for (var key in localStorage) {
+  // //   values[key] = JSON.parse(localStorage.getItem(key));
+  // // }
+  // return values;
+
   console.log('myoutfitshere', myOutfits);
   return (
     <div>
@@ -77,10 +87,13 @@ function MyOutfit() {
         <MyOutfitActionCard setMyOutfit={setMyOutfits} myOutfits={myOutfits} />
 
         {myOutfits.map(
-          (myOutfit) => <MyOutfitCard
-          myOutfitProduct={myOutfit}
-          setMyOutfit={setMyOutfits}
-          myOutfits={myOutfits} />,
+          (myOutfit) => (
+            <MyOutfitCard
+              myOutfitProduct={myOutfit}
+              setMyOutfit={setMyOutfits}
+              myOutfits={myOutfits}
+            />
+          ),
         )}
 
       </Carousel>
