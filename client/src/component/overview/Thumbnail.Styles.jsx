@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { Container } from '../../GlobalStyle';
 
-export const Picture = styled.div`
+export const Picture = styled(Container)`
   display: grid;
-  left: 15px;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0.25rem;
-  grid-auto-rows: 175px;
+  grid-auto-rows: 150px;
 `;
 
 export const ThumbnailImage = styled.div`
@@ -17,25 +17,17 @@ export const ThumbnailImage = styled.div`
   height: 100px;
   display: inline-block;
   position: relative;
-  // left: 13px;
-  margin-top:90px;
+  left: 13px;
   &:hover {
     cursor: pointer;
-    border-style:solid;
-    border-color: #cde306;
+    border: 5px solid green;
   }
   &:active{
-    border-style:solid;
-    border-color: black;
+    border: 5px solid red;
 }
 `;
 
 export const Text = styled.div`
   display: flex;
-    font-family: 'Roboto+Mono', sans-serif;
-    font-weight: 500;
-    line-height: 1.6;
-    font-size: 1.2rem;
-    color: #333;
 
 `;
