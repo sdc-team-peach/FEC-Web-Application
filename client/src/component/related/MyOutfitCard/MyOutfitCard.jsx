@@ -60,17 +60,20 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
   return (
     <div>
       <span>
+        { myOutfitProduct &&
         <Card
-          imgUrl={myOutfitProduct.style.photos[0].url}
-          secImgUrl={myOutfitProduct.style.photos[1].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
-          title={myOutfitProduct.info.name}
-          body={myOutfitProduct.info.category}
-          price={`$${myOutfitProduct.style.original_price}`}
-          salesPrice={myOutfitProduct.style.sale_price}
-          handleRemove={handleRemove}
-          id={myOutfitProduct.info.id}
-          // handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); console.log(myContext.modalStatus); }}
-        />
+        imgUrl={myOutfitProduct.style.photos[0].url}
+        secImgUrl={myOutfitProduct.style.photos[1].url || 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'}
+        title={myOutfitProduct.info.name}
+        body={myOutfitProduct.info.category}
+        price={`$${myOutfitProduct.style.original_price}`}
+        salesPrice={myOutfitProduct.style.sale_price}
+        handleRemove={handleRemove}
+        id={myOutfitProduct.info.id}
+        // handleModalOnclick={() => { myContext.setGlobalTheRelatedInfo(relatedProduct); myContext.setModalClicked(true); console.log(myContext.modalStatus); }}
+      />
+        }
+
         {/* <div>
         {relatedProduct.results[0].photos[0].url}
       </div> */}
@@ -81,4 +84,4 @@ function MyOutfitCard({ myOutfitProduct, setMyOutfit, myOutfits }) {
   );
 }
 
-export default MyOutfitCard; 
+export default MyOutfitCard;

@@ -83,8 +83,6 @@ function MyOutfit() {
           myOutfits={myOutfits} />,
         )}
 
-
-
       </Carousel>
       {/* {relatedProducts.map(
         (relatedProduct) => <RelatedProductCard relatedProduct={relatedProduct} />,

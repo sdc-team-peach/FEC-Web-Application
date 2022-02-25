@@ -43,7 +43,7 @@ const ActionCardIcon = styled.div`
 
 // this is the first card in myoutfit list
 export function MyOutfitActionCard({
-  setMyOutfit, myOutfits
+  setMyOutfit, myOutfits,
 }) {
   const myContext = useContext(AppContext);
   const id = myContext.productId;
@@ -53,9 +53,12 @@ export function MyOutfitActionCard({
   };
 
   const saveToLocal = () => {
-    localStorage.setItem(id, JSON.stringify(styleAndInfo));
-    if (!myOutfits.some(outfit => outfit.info.id === id)) {
-      setMyOutfit([...myOutfits, styleAndInfo]);
+    if (id) {
+      localStorage.setItem(id, JSON.stringify(styleAndInfo));
+      console.log(id);
+      if (!myOutfits.some((outfit) => outfit.info.id === id)) {
+        setMyOutfit([...myOutfits, styleAndInfo]);
+      }
     }
     // setMyOutfit([...myOutfits, styleAndInfo]);
   };
