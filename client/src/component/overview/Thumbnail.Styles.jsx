@@ -4,8 +4,9 @@ export const Picture = styled.div`
   display: grid;
   left: 15px;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.25rem;
-  grid-auto-rows: 175px;
+  grid-gap: 0.05rem;
+  grid-auto-rows: 150px;
+  margin-top: 45px;
 `;
 
 export const ThumbnailImage = styled.div`
@@ -13,12 +14,12 @@ export const ThumbnailImage = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   position: relative;
   // left: 13px;
-  margin-top:90px;
+  // margin-top:20px;
   &:hover {
     cursor: pointer;
     border-style:solid;

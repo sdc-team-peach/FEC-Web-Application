@@ -213,8 +213,7 @@ export const TextPrice = styled.p`
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-top: 15px;
-`;
+display: table-header-group;`;
 
 export const TextSalesPriceOriginal = styled.p`
   color: black;
@@ -224,8 +223,7 @@ export const TextSalesPriceOriginal = styled.p`
   font-family: 'Roboto+Mono', sans-serif;
   text-align: left;
   position: absolute;
-  margin-top: 15px;
-`;
+display: table-header-group;`;
 
 export const TextSalesPrice = styled.span`
   color: red;
@@ -235,14 +233,14 @@ export const TextSalesPrice = styled.span`
   text-align: left;
   position: absolute;
   margin-left: 125px;
-  margin-top: 15px;
+display: table-header-group;
 `;
 
 export const ButtonTwo = styled.button`
 border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
 background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
 color: ${({ primary }) => (primary ? '#000' : '#fff')};
-padding: ${({ big }) => (big ? '9px 15px' : '10px 13px')};
+padding: ${({ big }) => (big ? '9px 15px' : '10px 10px')};
 font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
 outline: none;
 cursor: pointer;

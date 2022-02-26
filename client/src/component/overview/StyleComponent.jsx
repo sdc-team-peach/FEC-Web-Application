@@ -21,7 +21,7 @@ function StyleComponent() {
   const [currentStyle, setCurrentStyle] = useState(null);
 
   useEffect(() => {
-    setAllProductStyles([...allProductStyles, ...styles]);
+    setAllProductStyles(styles);
     setCurrentStyle(styles[0]);
     myContext.setGlobalProductStyle(styles[0]);
   }, [styles]);
@@ -31,11 +31,14 @@ function StyleComponent() {
   }, [myContext.productStyle]);
 
   return (
-    <div>
+    <>
+  <h1>
 
-      {currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> ${currentStyle.original_price} </TextSalesPriceOriginal>}
+{currentStyle && currentStyle.sale_price && <TextSalesPriceOriginal> ${currentStyle.original_price} </TextSalesPriceOriginal>}
       {currentStyle && currentStyle.sale_price && <TextSalesPrice> ${currentStyle.sale_price} </TextSalesPrice>}
       {currentStyle && !currentStyle.sale_price && <TextPrice> ${currentStyle.original_price} </TextPrice>}
+  </h1>
+  <div>
       <Picture>
         {!loading && allProductStyles.map((style, index) =>
        <Styles
@@ -48,6 +51,7 @@ function StyleComponent() {
        {currentStyle && <QuantityDropdownMenu quantity={currentStyle.skus} />}
        {currentStyle && <AddToCartButton />}
     </div>
+    </>
   );
 }
 
