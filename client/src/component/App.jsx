@@ -51,7 +51,7 @@ function App() {
   const [reviewSubmitted, setReviewSubmitted] = useState(false);
   const [photoModal, setPhotoModal] = useState(false);
   const [reviewPhotos, setReviewPhotos] = useState([]);
-
+   console.log('check' , globalProductStyle);
   // const productIdSetting = {
   //   productId: globalProductId,
   //   productInfo: globalProductInfo,
