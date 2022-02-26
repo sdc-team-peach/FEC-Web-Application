@@ -40,7 +40,7 @@ const ProductInfoFetcher = () => {
       .catch((e) => {
         dispatch({ type: ACTIONS.ERROR, payload: { error: e } });
       });
-  }, []);
+  }, [myContext.productId]);
   return state;
 };
 
