@@ -240,7 +240,7 @@ export const ButtonTwo = styled.button`
 border-radius: ${({ bigRadius }) => (bigRadius ? '30px' : '5px')};
 background-color: ${({ primary }) => (primary ? '#cde306' : '#000')};
 color: ${({ primary }) => (primary ? '#000' : '#fff')};
-padding: ${({ big }) => (big ? '9px 15px' : '10px 13px')};
+padding: ${({ big }) => (big ? '9px 15px' : '10px 10px')};
 font-size: ${({ bigFont }) => (bigFont ? '20px' : '15px')};
 outline: none;
 cursor: pointer;
