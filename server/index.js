@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.get('/products', (req, res) => {
   const productID = req.query.id;
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productID}`, {
+  axios.get(`http://34.205.107.95/products/${productID}`, {
     headers: {
       Authorization: config.API_KEY,
     },
@@ -28,7 +28,7 @@ app.get('/products', (req, res) => {
 });
 app.get('/products/styles', (req, res) => {
   const productID = req.query.id;
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productID}/styles`, {
+  axios.get(`http://34.205.107.95/products/${productID}/styles`, {
     headers: {
       Authorization: config.API_KEY,
     },
@@ -69,7 +69,7 @@ app.get('/products/review/meta', (req, res) => {
 
 app.get('/products/related/styles', (req, res) => {
   const productId = req.query.id;
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`, {
+  axios.get(`http://34.205.107.95/products/${productId}/related`, {
     headers: {
       Authorization: config.API_KEY,
     },
@@ -80,7 +80,7 @@ app.get('/products/related/styles', (req, res) => {
     })
     .then((resultArr) => {
       if (resultArr) {
-        const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}/styles`, {
+        const requests = resultArr.data.map((relatedProductId) => axios.get(`http://34.205.107.95/products/${relatedProductId}/styles`, {
           headers: {
             Authorization: config.API_KEY,
           },
@@ -99,7 +99,7 @@ app.get('/products/related/styles', (req, res) => {
 app.get('/products/related', (req, res) => {
   const productId = req.query.id;
   console.log(productId);
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`, {
+  axios.get(`http://34.205.107.95/products/${productId}/related`, {
     headers: {
       Authorization: config.API_KEY,
     },
@@ -110,7 +110,7 @@ app.get('/products/related', (req, res) => {
     })
     .then((resultArr) => {
       if (resultArr) {
-        const requests = resultArr.data.map((relatedProductId) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${relatedProductId}`, {
+        const requests = resultArr.data.map((relatedProductId) => axios.get(`http://34.205.107.95/products/${relatedProductId}`, {
           headers: {
             Authorization: config.API_KEY,
           },

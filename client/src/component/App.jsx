@@ -110,10 +110,10 @@ function App() {
           {photoModal && <ReviewPhotoModal />}
           <Overview />
           <h1 className="recommended">Recommended Products</h1>
-          <RelatedContainer>
+          {/* <RelatedContainer>
             <Related />
             <MyOutfit />
-          </RelatedContainer>
+          </RelatedContainer> */}
           <Reviews />
           {modalClicked && (
           <Modal
